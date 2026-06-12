@@ -1,0 +1,139 @@
+@import "tailwindcss";
+
+@theme {
+  --color-ice-950: #070d16;
+  --color-ice-900: #0a1420;
+  --color-ice-850: #0d1826;
+  --color-ice-800: #101d2e;
+  --color-ice-700: #1a2b40;
+  --color-ice-600: #273b54;
+  --color-ice-500: #3a5170;
+  --color-ice-400: #577190;
+  --color-ice-300: #8aa1bc;
+  --color-ice-200: #b9c8da;
+  --color-ice-100: #d8e2ee;
+  --color-ice-50: #eff4fa;
+
+  --color-frost-500: #0ea5e9;
+  --color-frost-400: #38bdf8;
+  --color-frost-300: #7dd3fc;
+  --color-frost-200: #bae6fd;
+
+  --color-clay-600: #9a3412;
+  --color-clay-500: #c2410c;
+  --color-clay-400: #ea580c;
+  --color-clay-300: #fb923c;
+
+  --color-grass-600: #15803d;
+  --color-grass-500: #16a34a;
+  --color-grass-400: #4ade80;
+
+  --color-gold-500: #eab308;
+  --color-gold-400: #facc15;
+  --color-gold-300: #fde047;
+
+  --color-chalk: #f8fafc;
+
+  --font-display: "Barlow Condensed", "Arial Narrow", sans-serif;
+  --font-sans: "Inter", system-ui, sans-serif;
+
+  --animate-rope: rope 1.2s ease-out forwards;
+}
+
+:root {
+  color-scheme: dark;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  @apply bg-ice-950 text-ice-50 font-sans antialiased;
+  font-feature-settings: "cv11";
+}
+
+/* Day Game (light) theme for parent + player surfaces */
+[data-theme="day"] {
+  color-scheme: light;
+  @apply bg-chalk text-slate-900;
+}
+
+.tabular {
+  font-variant-numeric: tabular-nums;
+}
+
+.display {
+  font-family: var(--font-display);
+}
+
+.eyebrow {
+  font-family: var(--font-display);
+  @apply uppercase tracking-[0.18em] text-[11px] font-semibold;
+}
+
+/* Focus visibility (WCAG) */
+:focus-visible {
+  outline: 2px solid var(--color-frost-400);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Scrollbars */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-ice-600) transparent;
+}
+[data-theme="day"] * {
+  scrollbar-color: #cbd5e1 transparent;
+}
+
+@keyframes rope {
+  from {
+    stroke-dashoffset: 240;
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  to {
+    stroke-dashoffset: 0;
+    opacity: 1;
+  }
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.rise {
+  animation: rise 0.28s ease-out both;
+}
+
+@keyframes sweep {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(100%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
