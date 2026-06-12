@@ -37,7 +37,7 @@ function FilterChip({ active, onClick, children }: { active: boolean; onClick: (
       onClick={onClick}
       aria-pressed={active}
       className={`rounded-full border px-3 py-1 text-xs font-semibold transition-colors ${
-        active ? 'border-frost-400 bg-frost-400 text-ice-950' : 'border-ice-600/60 text-ice-300 hover:bg-ice-700/60 hover:text-ice-100'
+        active ? 'border-frost-400 bg-frost-400 text-white' : 'border-ice-600/60 text-ice-300 hover:bg-ice-700/60 hover:text-ice-100'
       }`}
     >
       {children}
@@ -79,7 +79,7 @@ export default function RecruitingPage() {
         <div className="flex items-start gap-3">
           <Compass size={20} className="mt-0.5 shrink-0 text-frost-400" aria-hidden />
           <div>
-            <p className="display text-base font-semibold uppercase tracking-wide text-ice-50">Tyler is {TYLER.age} — and that's the point</p>
+            <p className="display text-base font-semibold text-ice-50">Tyler is {TYLER.age} — and that's the point</p>
             <p className="mt-1 text-sm leading-relaxed text-ice-300">
               This is early, on purpose. Families who start the academic profile early get the best fits — grades,
               test prep, and the right target list matter years before any coach watches a video. College Bound is
@@ -120,7 +120,7 @@ export default function RecruitingPage() {
       </Card>
 
       {/* College cards */}
-      <p className="tabular mb-2 text-xs text-ice-500">{colleges.length} programs match</p>
+      <p className="tabular mb-2 text-xs text-ice-400">{colleges.length} programs match</p>
       <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-3">
         {colleges.map((c) => {
           const starred = shortlist.includes(c.id)
@@ -128,7 +128,7 @@ export default function RecruitingPage() {
             <Card key={c.id} className="rise transition-colors hover:border-frost-400/40">
               <div className="flex items-start justify-between gap-3">
                 <div className="min-w-0">
-                  <p className="display truncate text-base font-semibold uppercase tracking-wide text-ice-50">{c.name}</p>
+                  <p className="display truncate text-base font-semibold text-ice-50">{c.name}</p>
                   <div className="mt-1.5 flex flex-wrap items-center gap-1.5">
                     <Chip tone={divisionTone(c.division)}>{c.division}</Chip>
                     <span className="text-xs text-ice-400">{c.state}</span>
@@ -146,7 +146,7 @@ export default function RecruitingPage() {
                     <Star size={18} fill={starred ? 'currentColor' : 'none'} aria-hidden />
                   </button>
                   <p className={`display tabular text-3xl font-bold leading-none ${fitClass(c.fit)}`}>{c.fit}</p>
-                  <p className="eyebrow text-ice-500">Fit</p>
+                  <p className="eyebrow text-ice-400">Fit</p>
                 </div>
               </div>
               <div className="mt-3 space-y-1.5 border-t border-ice-600/30 pt-3">
@@ -174,7 +174,7 @@ export default function RecruitingPage() {
       {/* Shortlist strip */}
       {shortlist.length > 0 && (
         <div className="sticky bottom-4 z-30 mt-4">
-          <Card className="rise border-gold-400/40 shadow-2xl">
+          <Card className="rise border-gold-400/40 shadow-sm">
             <div className="flex flex-wrap items-center gap-3">
               <Star size={17} className="text-gold-400" fill="currentColor" aria-hidden />
               <span className="text-sm font-semibold text-ice-100">

@@ -5,7 +5,7 @@ import { ChevronRight, X } from 'lucide-react'
 /* ---------- Card ---------- */
 export function Card({ children, className = '', pad = true }: { children: ReactNode; className?: string; pad?: boolean }) {
   return (
-    <div className={`rounded-[10px] border border-ice-600/40 bg-ice-800 dark-card ${pad ? 'p-4 sm:p-5' : ''} ${className}`}>
+    <div className={`rounded-[10px] border border-ice-600/40 bg-ice-800 shadow-xs ${pad ? 'p-4 sm:p-5' : ''} ${className}`}>
       {children}
     </div>
   )
@@ -14,7 +14,7 @@ export function Card({ children, className = '', pad = true }: { children: React
 export function CardTitle({ children, action }: { children: ReactNode; action?: ReactNode }) {
   return (
     <div className="mb-3 flex items-center justify-between gap-2">
-      <h2 className="display text-lg font-semibold uppercase tracking-wide text-ice-100">{children}</h2>
+      <h2 className="text-[15px] font-semibold text-ice-100">{children}</h2>
       {action}
     </div>
   )
@@ -26,7 +26,7 @@ export function PageHeader({ eyebrow, title, sub, action }: { eyebrow: string; t
     <div className="mb-6 flex flex-wrap items-end justify-between gap-3 rise">
       <div>
         <p className="eyebrow text-frost-400">{eyebrow}</p>
-        <h1 className="display mt-1 text-3xl font-semibold uppercase tracking-wide text-ice-50 sm:text-4xl">{title}</h1>
+        <h1 className="display mt-1 text-[32px] font-semibold leading-tight text-ice-50 sm:text-4xl">{title}</h1>
         {sub && <p className="mt-1 max-w-2xl text-sm text-ice-300">{sub}</p>}
       </div>
       {action}
@@ -84,11 +84,11 @@ export function StatCard({ label, value, format = (n) => String(Math.round(n)), 
 
 /* ---------- Badge / StatusChip ---------- */
 const CHIP_STYLES: Record<string, string> = {
-  frost: 'bg-frost-400/15 text-frost-300 border-frost-400/30',
-  grass: 'bg-grass-500/15 text-grass-400 border-grass-500/30',
-  clay: 'bg-clay-500/15 text-clay-300 border-clay-500/40',
-  gold: 'bg-gold-400/15 text-gold-300 border-gold-400/30',
-  ice: 'bg-ice-600/30 text-ice-200 border-ice-500/40',
+  frost: 'bg-frost-400/10 text-frost-400 border-frost-400/25',
+  grass: 'bg-grass-500/10 text-grass-400 border-grass-500/25',
+  clay: 'bg-clay-500/10 text-clay-300 border-clay-500/25',
+  gold: 'bg-gold-400/10 text-gold-300 border-gold-400/25',
+  ice: 'bg-ice-700/70 text-ice-300 border-ice-500/35',
 }
 
 export function Chip({ tone = 'ice', children, icon }: { tone?: keyof typeof CHIP_STYLES; children: ReactNode; icon?: ReactNode }) {
@@ -110,10 +110,10 @@ export function Button({ children, onClick, variant = 'primary', type = 'button'
   className?: string
 }) {
   const styles = {
-    primary: 'bg-frost-400 text-ice-950 hover:bg-frost-300 shadow-[0_0_18px_rgba(56,189,248,0.25)]',
-    ghost: 'border border-ice-600/60 text-ice-200 hover:bg-ice-700/60 hover:text-ice-50',
-    danger: 'bg-clay-500 text-white hover:bg-clay-400',
-    gold: 'bg-gold-400 text-ice-950 hover:bg-gold-300',
+    primary: 'bg-frost-400 text-white hover:bg-frost-500',
+    ghost: 'border border-ice-600/50 bg-ice-800 text-ice-200 hover:border-ice-500 hover:text-ice-50',
+    danger: 'bg-clay-500 text-white hover:bg-clay-600',
+    gold: 'bg-gold-400 text-white hover:bg-gold-500',
   }
   return (
     <button
@@ -138,9 +138,9 @@ export function Avatar({ name, hue, size = 36 }: { name: string; hue: number; si
         width: size,
         height: size,
         fontSize: size * 0.38,
-        background: `linear-gradient(135deg, hsl(${hue} 55% 28%), hsl(${hue} 60% 18%))`,
-        color: `hsl(${hue} 80% 82%)`,
-        border: `1px solid hsl(${hue} 50% 38%)`,
+        background: `linear-gradient(135deg, hsl(${hue} 52% 90%), hsl(${hue} 48% 82%))`,
+        color: `hsl(${hue} 55% 28%)`,
+        border: `1px solid hsl(${hue} 35% 68%)`,
       }}
     >
       {initials}
@@ -174,13 +174,13 @@ export function Modal({ open, onClose, title, children, wide }: { open: boolean;
   }, [open, onClose])
   if (!open) return null
   return (
-    <div className="fixed inset-0 z-50 flex items-end justify-center bg-ice-950/70 p-0 backdrop-blur-sm sm:items-center sm:p-6" onClick={onClose} role="dialog" aria-modal="true" aria-label={title}>
+    <div className="fixed inset-0 z-50 flex items-end justify-center bg-ink-950/35 p-0 backdrop-blur-[2px] sm:items-center sm:p-6" onClick={onClose} role="dialog" aria-modal="true" aria-label={title}>
       <div
-        className={`rise max-h-[90vh] w-full overflow-y-auto rounded-t-2xl border border-ice-600/50 bg-ice-850 p-5 shadow-2xl sm:rounded-2xl ${wide ? 'sm:max-w-2xl' : 'sm:max-w-md'}`}
+        className={`rise max-h-[90vh] w-full overflow-y-auto rounded-t-2xl border border-ice-600/40 bg-ice-850 p-5 shadow-xl sm:rounded-2xl ${wide ? 'sm:max-w-2xl' : 'sm:max-w-md'}`}
         onClick={(e) => e.stopPropagation()}
       >
         <div className="mb-4 flex items-center justify-between">
-          <h2 className="display text-xl font-semibold uppercase tracking-wide">{title}</h2>
+          <h2 className="display text-xl font-semibold">{title}</h2>
           <button onClick={onClose} aria-label="Close" className="rounded p-1 text-ice-400 hover:bg-ice-700 hover:text-ice-100">
             <X size={18} />
           </button>
@@ -212,7 +212,7 @@ export function ToastHost() {
   return (
     <div aria-live="polite" className="pointer-events-none fixed bottom-20 left-1/2 z-[60] flex w-full max-w-sm -translate-x-1/2 flex-col items-center gap-2 px-4 sm:bottom-6">
       {items.map((t) => (
-        <div key={t.id} className="rise pointer-events-auto w-full rounded-lg border border-frost-400/40 bg-ice-800 px-4 py-2.5 text-sm font-medium text-ice-50 shadow-xl">
+        <div key={t.id} className="rise pointer-events-auto w-full rounded-lg border border-ice-600/50 bg-ink-900 px-4 py-2.5 text-sm font-medium text-white shadow-lg">
           {t.msg}
         </div>
       ))}
@@ -230,7 +230,7 @@ export function Tabs({ tabs, active, onChange }: { tabs: { id: string; label: st
           role="tab"
           aria-selected={active === t.id}
           onClick={() => onChange(t.id)}
-          className={`rounded-md px-3 py-1.5 text-sm font-semibold transition-colors ${active === t.id ? 'bg-frost-400 text-ice-950' : 'text-ice-300 hover:bg-ice-700/70 hover:text-ice-100'}`}
+          className={`rounded-md px-3 py-1.5 text-sm font-semibold transition-colors ${active === t.id ? 'bg-ice-850 text-frost-400 shadow-xs' : 'text-ice-300 hover:text-ice-100'}`}
         >
           {t.label}
         </button>
@@ -276,7 +276,7 @@ export function RockReadyRing({ score, size = 148, label = 'Rock Ready' }: { sco
           stroke="var(--color-frost-400)" strokeWidth="7" strokeLinecap="round"
           strokeDasharray={c} strokeDashoffset={c * (1 - v / 100)}
           transform={`rotate(-90 ${size / 2} ${size / 2})`}
-          style={{ transition: 'stroke-dashoffset 80ms linear', filter: 'drop-shadow(0 0 6px rgba(56,189,248,0.45))' }}
+          style={{ transition: 'stroke-dashoffset 80ms linear' }}
         />
       </svg>
       <div className="absolute inset-0 flex flex-col items-center justify-center">

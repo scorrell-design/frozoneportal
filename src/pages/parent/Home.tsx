@@ -32,7 +32,7 @@ export default function HomePage() {
           <div className="flex items-center gap-3">
             <Avatar name={TYLER.name} hue={TYLER.hue} size={44} />
             <div className="min-w-0">
-              <p className="display truncate text-xl font-semibold uppercase tracking-wide text-ice-50">{TYLER.name}</p>
+              <p className="display truncate text-xl font-semibold text-ice-50">{TYLER.name}</p>
               <p className="text-xs text-ice-400">#{TYLER.jersey} · {TYLER.ageGroup} · {TYLER.position}</p>
             </div>
             <span className="ml-auto"><Chip tone="frost">Prospect</Chip></span>
@@ -91,7 +91,7 @@ export default function HomePage() {
               </li>
             ))}
           </ul>
-          <p className="mt-2.5 text-xs text-ice-500">All sessions led by {staffById(latest.coachId)?.name}.</p>
+          <p className="mt-2.5 text-xs text-ice-400">All sessions led by {staffById(latest.coachId)?.name}.</p>
         </Card>
 
         {/* Account strip */}

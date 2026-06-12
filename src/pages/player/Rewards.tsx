@@ -32,19 +32,14 @@ export default function PlayerRewards() {
       />
 
       {/* Gold hero */}
-      <Card className="rise relative overflow-hidden border-gold-400/40">
-        <div
-          className="pointer-events-none absolute -right-16 -top-16 h-56 w-56 rounded-full opacity-20"
-          style={{ background: 'radial-gradient(circle, var(--color-gold-400), transparent 70%)' }}
-          aria-hidden
-        />
+      <Card className="rise border-gold-400/40">
         <div className="flex flex-wrap items-center gap-6">
           <span className="flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl border border-gold-400/40 bg-gold-400/10 text-gold-300">
             <Gem size={28} aria-hidden />
           </span>
           <div className="min-w-0 flex-1">
             <p className="eyebrow text-gold-300">Your balance</p>
-            <p className="display tabular mt-1 text-5xl font-bold text-ice-50 sm:text-6xl">
+            <p className="display tabular mt-1 text-5xl font-bold text-gold-400 sm:text-6xl">
               {Math.round(animated).toLocaleString()}
             </p>
             <div className="mt-2.5 flex flex-wrap items-center gap-2">
@@ -95,7 +90,7 @@ export default function PlayerRewards() {
               )
             })}
           </div>
-          <p className="px-4 py-3 text-xs text-ice-500 sm:px-5">
+          <p className="px-4 py-3 text-xs text-ice-400 sm:px-5">
             Points work at every Frozen Ropes in the country — travel weekend in Tampa included.
           </p>
         </Card>
@@ -115,16 +110,16 @@ export default function PlayerRewards() {
                 >
                   <span
                     className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg"
-                    style={{ background: `linear-gradient(135deg, hsl(${p.hue} 55% 26%), hsl(${p.hue} 60% 14%))` }}
+                    style={{ background: `linear-gradient(135deg, hsl(${p.hue} 50% 90%), hsl(${p.hue} 45% 80%))` }}
                     aria-hidden
                   >
-                    <ShoppingBag size={16} style={{ color: `hsl(${p.hue} 80% 78%)` }} />
+                    <ShoppingBag size={16} style={{ color: `hsl(${p.hue} 50% 30%)` }} />
                   </span>
                   <div className="min-w-0 flex-1">
                     <p className="truncate text-sm font-semibold text-ice-100">{p.name}</p>
                     <p className="tabular mt-0.5 text-xs text-gold-300">{p.points.toLocaleString()} pts</p>
                     {!affordable && (
-                      <p className="tabular mt-0.5 text-[11px] text-ice-500">
+                      <p className="tabular mt-0.5 text-[11px] text-ice-400">
                         {(p.points - balance).toLocaleString()} more to go
                       </p>
                     )}
@@ -140,7 +135,7 @@ export default function PlayerRewards() {
               )
             })}
           </div>
-          <p className="mt-3 text-xs leading-relaxed text-ice-500">
+          <p className="mt-3 text-xs leading-relaxed text-ice-400">
             The Grip Trainer Kit pairs with your rice bucket homework — two more lesson months and it's yours.
           </p>
         </Card>

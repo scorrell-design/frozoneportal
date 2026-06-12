@@ -42,7 +42,7 @@ function PlayerCard({ player }: { player: Player }) {
       <div className="flex items-center gap-3">
         <Avatar name={player.name} hue={player.hue} size={40} />
         <div className="min-w-0 flex-1">
-          <p className="display truncate text-lg font-semibold uppercase tracking-wide text-ice-50">{player.name}</p>
+          <p className="display truncate text-lg font-semibold text-ice-50">{player.name}</p>
           <p className="text-xs text-ice-400">#{player.jersey} · {player.ageGroup} · {player.position} · {player.program}</p>
         </div>
       </div>
@@ -132,7 +132,7 @@ function MemberDetail({ fam }: { fam: Family }) {
       </div>
 
       {/* Players */}
-      <h2 className="display mt-6 mb-3 text-lg font-semibold uppercase tracking-wide text-ice-100">
+      <h2 className="display mt-6 mb-3 text-lg font-semibold text-ice-100">
         Rock Ready — {players.length === 1 ? 'player' : 'players'}
       </h2>
       <div className="grid gap-3 lg:grid-cols-2">

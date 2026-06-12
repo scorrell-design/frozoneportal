@@ -103,7 +103,7 @@ export default function ContentCmsPage() {
             <p className="eyebrow text-ice-400">Most viewed</p>
             <Star size={18} className="text-frost-400" aria-hidden />
           </div>
-          <p className="display mt-2 truncate text-xl font-semibold uppercase tracking-wide text-ice-50" title={mostViewed.title}>
+          <p className="display mt-2 truncate text-xl font-semibold text-ice-50" title={mostViewed.title}>
             {mostViewed.title}
           </p>
           <p className="tabular mt-1 text-xs font-medium text-ice-400">{mostViewed.views.toLocaleString()} views · {PILLAR_LABEL[mostViewed.pillar]}</p>
@@ -216,7 +216,7 @@ export default function ContentCmsPage() {
               <div key={r.id}>
                 <div className="mb-1 flex items-center justify-between gap-3">
                   <span className="flex min-w-0 items-center gap-2">
-                    <span className="display tabular w-4 shrink-0 text-sm font-bold text-ice-500">{i + 1}</span>
+                    <span className="display tabular w-4 shrink-0 text-sm font-bold text-ice-400">{i + 1}</span>
                     <span className="truncate text-sm font-medium text-ice-100" title={r.title}>{r.title}</span>
                   </span>
                   <span className="tabular shrink-0 text-xs font-semibold text-ice-200">{r.views.toLocaleString()}</span>

@@ -136,7 +136,7 @@ export default function RewardsPage() {
             <Globe size={22} aria-hidden />
           </span>
           <div className="min-w-0 flex-1">
-            <h2 className="display text-lg font-semibold uppercase tracking-wide text-ice-100">One network, one wallet</h2>
+            <h2 className="display text-lg font-semibold text-ice-100">One network, one wallet</h2>
             <p className="mt-1 max-w-3xl text-sm leading-relaxed text-ice-300">
               Diamond Dollars travel with the family, not the facility. Points earned at Dawsonville spend at any Pro Shop
               in the network — and when the Whitmans buy gloves in Tampa on a travel-ball weekend, those points land right

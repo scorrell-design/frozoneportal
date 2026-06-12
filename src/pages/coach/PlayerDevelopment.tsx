@@ -92,7 +92,7 @@ export default function PlayerDevelopment() {
           <div className="flex min-w-0 items-center gap-4">
             <Avatar name={p.name} hue={p.hue} size={64} />
             <div className="min-w-0">
-              <h2 className="display text-2xl font-semibold uppercase tracking-wide text-ice-50">
+              <h2 className="display text-2xl font-semibold text-ice-50">
                 {p.name} <span className="tabular text-lg font-normal text-ice-400">#{p.jersey}</span>
               </h2>
               <p className="mt-0.5 text-sm text-ice-300">
@@ -128,7 +128,7 @@ export default function PlayerDevelopment() {
               <PercentileRow key={ix.key} label={ix.label} score={ix.score} grade={ix.grade} />
             ))}
           </div>
-          <p className="mt-3 text-xs text-ice-500">Percentiles vs. the {p.ageGroup} network board — blue runs cold, red runs hot.</p>
+          <p className="mt-3 text-xs text-ice-400">Percentiles vs. the {p.ageGroup} network board — blue runs cold, red runs hot.</p>
         </Card>
       </div>
 
@@ -144,7 +144,7 @@ export default function PlayerDevelopment() {
           Composite trend
         </CardTitle>
         <TrendChart data={trendData} yDomain={[40, 100]} />
-        <p className="mt-2 text-xs text-ice-500">
+        <p className="mt-2 text-xs text-ice-400">
           Eight quarterly evals · {p.compositeTrend[0]} → {p.compositeTrend[p.compositeTrend.length - 1]} composite.
         </p>
       </Card>
@@ -188,7 +188,7 @@ export default function PlayerDevelopment() {
                   <p className="mt-1.5 text-xs leading-relaxed text-ice-300">{n.workedOn}</p>
                   {n.homework.length > 0 && (
                     <div className="mt-2 flex flex-wrap items-center gap-1.5">
-                      <span className="eyebrow text-ice-500">Homework</span>
+                      <span className="eyebrow text-ice-400">Homework</span>
                       {n.homework.map((d) => (
                         <Chip key={d} tone="frost">{drillById(d)?.title ?? d}</Chip>
                       ))}
@@ -230,11 +230,12 @@ export default function PlayerDevelopment() {
                   <span
                     className="flex h-11 w-16 shrink-0 items-center justify-center rounded-md"
                     style={{
-                      background: `linear-gradient(135deg, hsl(${v.hue} 45% 26%), hsl(${(v.hue + 40) % 360} 55% 13%))`,
+                      background: `linear-gradient(135deg, hsl(${v.hue} 50% 90%), hsl(${v.hue} 45% 80%))`,
+                      color: `hsl(${v.hue} 50% 30%)`,
                     }}
                     aria-hidden
                   >
-                    <Play size={14} className="text-ice-50/90" fill="currentColor" />
+                    <Play size={14} fill="currentColor" />
                   </span>
                   <span className="min-w-0 flex-1">
                     <span className="block truncate text-sm font-medium text-ice-100 group-hover:text-frost-200">{v.title}</span>
@@ -276,7 +277,7 @@ export default function PlayerDevelopment() {
               className={`${FIELD} tabular`}
             />
           </label>
-          <p className="text-xs text-ice-500">
+          <p className="text-xs text-ice-400">
             New scores re-grade the index, refresh the radar, and roll into the composite at the next eval sync.
           </p>
           <Button onClick={saveEval} disabled={!evalValid} className="w-full">

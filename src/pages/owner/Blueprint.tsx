@@ -100,7 +100,7 @@ export default function BlueprintPage() {
       <div className="mt-4 rise" style={{ animationDelay: '260ms' }}>
         <Card pad={false}>
           <div className="flex items-center justify-between gap-2 px-4 pt-4 sm:px-5">
-            <h2 className="display text-lg font-semibold uppercase tracking-wide text-ice-100">June variance by line</h2>
+            <h2 className="display text-lg font-semibold text-ice-100">June variance by line</h2>
             <p className="text-xs text-ice-400">Click a line for the six-month story</p>
           </div>
           <div className="mt-2 overflow-x-auto">

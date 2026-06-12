@@ -99,7 +99,7 @@ export default function CoachDashboard() {
                       <Chip tone="clay" icon={<Flag size={11} aria-hidden />}>{flags} {flags === 1 ? 'flag' : 'flags'}</Chip>
                     )}
                     <span className="tabular hidden text-sm font-semibold text-ice-200 sm:block">
-                      {c.enrolled.length} <span className="text-ice-500">/ {c.capacity}</span>
+                      {c.enrolled.length} <span className="text-ice-400">/ {c.capacity}</span>
                     </span>
                     <ChevronRight size={16} className="text-ice-500 transition-colors group-hover:text-frost-300" aria-hidden />
                   </span>
@@ -107,7 +107,7 @@ export default function CoachDashboard() {
               )
             })}
           </div>
-          <p className="mt-3 text-xs text-ice-500">Tap a session to run attendance — flags surface before the kids hit the cage.</p>
+          <p className="mt-3 text-xs text-ice-400">Tap a session to run attendance — flags surface before the kids hit the cage.</p>
         </Card>
 
         <div className="space-y-3">
@@ -116,13 +116,13 @@ export default function CoachDashboard() {
             <div className="flex items-start justify-between gap-2">
               <div>
                 <p className="eyebrow text-ice-400">Timeclock</p>
-                <p className="display mt-1 text-2xl font-semibold uppercase tracking-wide text-ice-50">
+                <p className="display mt-1 text-2xl font-semibold text-ice-50">
                   {clockedIn ? 'On the clock' : 'Off the clock'}
                 </p>
                 <p className="mt-1 text-xs text-ice-400">Today's shift · 2:00 – 8:00 PM</p>
               </div>
               <span
-                className={`mt-1 inline-flex h-2.5 w-2.5 rounded-full ${clockedIn ? 'bg-grass-400 shadow-[0_0_8px_rgba(74,222,128,0.7)]' : 'bg-ice-500'}`}
+                className={`mt-1 inline-flex h-2.5 w-2.5 rounded-full ${clockedIn ? 'bg-grass-400' : 'bg-ice-500'}`}
                 aria-hidden
               />
             </div>

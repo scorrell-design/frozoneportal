@@ -70,7 +70,7 @@ export default function MatrixPage() {
                 <div className={`h-1 w-full ${a.bar}`} aria-hidden />
                 <div className="flex flex-1 flex-col p-4 sm:p-5">
                   <div className="flex items-start justify-between">
-                    <h2 className={`display text-xl font-semibold uppercase tracking-wide ${a.text}`}>{t.name}</h2>
+                    <h2 className={`display text-xl font-semibold ${a.text}`}>{t.name}</h2>
                     <Chip tone={a.chip}>{MULTIPLIER[t.id]} rewards</Chip>
                   </div>
                   <p className="display tabular mt-2 text-4xl font-semibold text-ice-50">
@@ -116,7 +116,7 @@ export default function MatrixPage() {
                 <span key={t.id} className="flex items-center gap-1.5 text-xs text-ice-300">
                   <span className={`inline-block h-2.5 w-2.5 rounded-sm ${a.bar}`} aria-hidden />
                   {t.name} <span className="tabular font-semibold text-ice-100">{t.members}</span>
-                  <span className="tabular text-ice-500">({Math.round((t.members / totalMembers) * 100)}%)</span>
+                  <span className="tabular text-ice-400">({Math.round((t.members / totalMembers) * 100)}%)</span>
                 </span>
               )
             })}

@@ -18,13 +18,13 @@ const TYPE_ICONS: Record<ResourceType, LucideIcon> = {
 function Preview({ r }: { r: Resource }) {
   if (r.type === 'video' || r.type === 'lecture') {
     return (
-      <div className="relative aspect-video w-full overflow-hidden rounded-xl border border-ice-600/50 bg-[linear-gradient(135deg,#13304a_0%,#0a1420_55%,#070d16_100%)]">
+      <div className="relative aspect-video w-full overflow-hidden rounded-xl border border-ice-600/50 bg-[linear-gradient(135deg,hsl(205_50%_90%)_0%,hsl(205_45%_80%)_100%)]">
         <div aria-hidden className="absolute inset-x-0 top-1/2 h-px -translate-y-1/2 bg-frost-400/25" />
         <div className="absolute inset-0 flex flex-col items-center justify-center gap-3">
           <button
             onClick={() => toast('Streaming begins in the production build')}
             aria-label={`Play ${r.title}`}
-            className="flex h-16 w-16 items-center justify-center rounded-full border border-frost-400/50 bg-frost-400/15 text-frost-300 shadow-[0_0_28px_rgba(56,189,248,0.3)] transition-transform hover:scale-105"
+            className="flex h-16 w-16 items-center justify-center rounded-full border border-frost-400/50 bg-frost-400/15 text-frost-300 transition-transform hover:scale-105"
           >
             <Play size={26} className="ml-1" aria-hidden />
           </button>
@@ -41,10 +41,10 @@ function Preview({ r }: { r: Resource }) {
             <span key={tab} className={`rounded-t-md px-3 py-1.5 text-[11px] font-semibold ${i === 0 ? 'bg-ice-900 text-frost-300' : 'text-ice-400'}`}>{tab}</span>
           ))}
         </div>
-        <div className="grid grid-cols-5 gap-px bg-ice-700/40 p-px" aria-hidden>
+        <div className="grid grid-cols-5 gap-px bg-ice-600/40 p-px" aria-hidden>
           {Array.from({ length: 30 }, (_, i) => (
             <div key={i} className={`h-8 bg-ice-900 ${i < 5 ? 'bg-ice-850' : ''}`}>
-              {i >= 5 && i % 5 !== 0 && <div className="mx-2 mt-3 h-1.5 rounded bg-ice-700/70" style={{ width: `${30 + ((i * 17) % 50)}%` }} />}
+              {i >= 5 && i % 5 !== 0 && <div className="mx-2 mt-3 h-1.5 rounded bg-ice-600/60" style={{ width: `${30 + ((i * 17) % 50)}%` }} />}
             </div>
           ))}
         </div>
@@ -55,18 +55,18 @@ function Preview({ r }: { r: Resource }) {
   // pdf + drill: stylized page mockup
   return (
     <div className="flex justify-center rounded-xl border border-ice-600/50 bg-ice-900 p-6 sm:p-10">
-      <div className="w-full max-w-sm rounded-md border border-ice-600/50 bg-ice-850 p-5 shadow-xl" aria-hidden>
+      <div className="w-full max-w-sm rounded-md border border-ice-600/50 bg-ice-850 p-5 shadow-sm" aria-hidden>
         <div className="h-3 w-3/4 rounded bg-ice-500/80" />
         <div className="mt-1.5 h-3 w-1/2 rounded bg-ice-600/80" />
         <div className="mt-5 space-y-2">
           {[92, 100, 86, 95, 70, 100, 64].map((w, i) => (
-            <div key={i} className="h-1.5 rounded bg-ice-700" style={{ width: `${w}%` }} />
+            <div key={i} className="h-1.5 rounded bg-ice-600/50" style={{ width: `${w}%` }} />
           ))}
         </div>
         <div className="mt-5 h-20 rounded border border-dashed border-frost-400/30 bg-frost-400/5" />
         <div className="mt-4 space-y-2">
           {[100, 88, 94].map((w, i) => (
-            <div key={i} className="h-1.5 rounded bg-ice-700" style={{ width: `${w}%` }} />
+            <div key={i} className="h-1.5 rounded bg-ice-600/50" style={{ width: `${w}%` }} />
           ))}
         </div>
         <p className="tabular mt-4 text-center text-[10px] text-ice-500">Page 1 · {r.meta}</p>
@@ -98,7 +98,7 @@ export default function ResourceDetailPage() {
 
       <div className="mb-6 rise">
         <p className="eyebrow flex items-center gap-2 text-frost-400"><Icon size={14} aria-hidden /> {pillar?.name} · {r.type}</p>
-        <h1 className="display mt-1 text-3xl font-semibold uppercase tracking-wide text-ice-50 sm:text-4xl">{r.title}</h1>
+        <h1 className="display mt-1 text-3xl font-semibold text-ice-50 sm:text-4xl">{r.title}</h1>
         <p className="mt-1 max-w-2xl text-sm text-ice-300">{r.description}</p>
       </div>
 

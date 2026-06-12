@@ -39,7 +39,7 @@ function ResourceCard({ r, delay }: { r: Resource; delay: number }) {
           <Icon size={18} className="text-frost-400" aria-hidden />
           {r.status === 'draft' && <Chip tone="gold">Draft</Chip>}
         </div>
-        <p className="display mt-2 text-base font-semibold uppercase leading-tight tracking-wide text-ice-50">{r.title}</p>
+        <p className="display mt-2 text-base font-semibold leading-tight text-ice-50">{r.title}</p>
         <p className="mt-1.5 line-clamp-2 text-xs leading-relaxed text-ice-300">{r.description}</p>
         <p className="tabular mt-3 flex items-center gap-3 text-[11px] text-ice-400">
           <span className="capitalize">{r.type}</span>
@@ -86,7 +86,7 @@ export default function LibraryPage() {
           onChange={(e) => setQuery(e.target.value)}
           placeholder="Search the library — try “grip”, “referral”, or “camp”"
           aria-label="Search library resources"
-          className="w-full rounded-lg border border-ice-600/60 bg-ice-900 py-2.5 pl-10 pr-4 text-sm text-ice-100 placeholder:text-ice-500 focus:border-frost-400/60"
+          className="w-full rounded-lg border border-ice-600/60 bg-ice-900 py-2.5 pl-10 pr-4 text-sm text-ice-100 placeholder:text-ice-400 focus:border-frost-400/60"
         />
       </div>
 
@@ -118,7 +118,7 @@ export default function LibraryPage() {
                       <Icon size={22} className="text-frost-400" aria-hidden />
                       <Chip tone="frost">{count} items</Chip>
                     </div>
-                    <p className="display mt-3 text-xl font-semibold uppercase tracking-wide text-ice-50">{p.name}</p>
+                    <p className="display mt-3 text-xl font-semibold text-ice-50">{p.name}</p>
                     <p className="mt-1 text-xs leading-relaxed text-ice-300">{p.tagline}</p>
                   </Card>
                 </Link>
@@ -128,7 +128,7 @@ export default function LibraryPage() {
 
           {/* Most used */}
           <div className="mt-8">
-            <h2 className="display mb-3 flex items-center gap-2 text-lg font-semibold uppercase tracking-wide text-ice-100">
+            <h2 className="display mb-3 flex items-center gap-2 text-lg font-semibold text-ice-100">
               <Flame size={16} className="text-gold-400" aria-hidden /> Most used this month
             </h2>
             <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 xl:grid-cols-4">

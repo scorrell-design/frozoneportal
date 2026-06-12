@@ -84,7 +84,7 @@ export default function WellnessPage() {
           <ul className="space-y-3">
             {WELLNESS.map((w) => {
               const pct = Math.round((w.throwingLoad / w.loadLimit) * 100)
-              const bar = pct > 90 ? 'bg-clay-400' : pct >= 75 ? 'bg-gold-400' : 'bg-grass-400'
+              const bar = pct > 90 ? 'bg-clay-500' : pct >= 75 ? 'bg-gold-400' : 'bg-grass-500'
               const txt = pct > 90 ? 'text-clay-300' : pct >= 75 ? 'text-gold-300' : 'text-grass-400'
               return (
                 <li key={w.week}>
@@ -181,7 +181,7 @@ export default function WellnessPage() {
           <div className="flex items-start gap-3">
             <ShieldCheck size={20} className="mt-0.5 shrink-0 text-grass-400" aria-hidden />
             <div>
-              <p className="display text-base font-semibold uppercase tracking-wide text-ice-50">Why we track this</p>
+              <p className="display text-base font-semibold text-ice-50">Why we track this</p>
               <p className="mt-1 text-sm leading-relaxed text-ice-300">
                 Quality reps over quantity reps. We track workload so 12-year-old arms stay 12-year-old arms.
                 Nobody at Frozen Ropes gets praised for throwing more — they get praised for throwing well,

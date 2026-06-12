@@ -66,7 +66,7 @@ export default function BoomPage() {
                 </li>
               ))}
               {topics.length === 0 && (
-                <li className="rounded-lg border border-dashed border-ice-600/50 px-3 py-4 text-center text-xs text-ice-500">
+                <li className="rounded-lg border border-dashed border-ice-600/50 px-3 py-4 text-center text-xs text-ice-400">
                   No topics yet — add the first one below.
                 </li>
               )}
@@ -100,7 +100,7 @@ export default function BoomPage() {
                 <div key={c.id} className="rounded-lg border border-ice-600/30 bg-ice-900/60 p-4 transition-colors hover:border-frost-400/30">
                   <div className="flex flex-wrap items-center justify-between gap-2">
                     <div>
-                      <p className="display text-base font-semibold uppercase tracking-wide text-ice-50">{c.theme}</p>
+                      <p className="display text-base font-semibold text-ice-50">{c.theme}</p>
                       <p className="text-xs text-ice-400">{c.date}</p>
                     </div>
                     <div className="flex items-center gap-2">
@@ -135,7 +135,7 @@ export default function BoomPage() {
         <div className="space-y-4">
           <Card className="rise">
             <p className="eyebrow text-frost-300">What is Boom?</p>
-            <p className="display mt-2 text-xl font-semibold uppercase tracking-wide text-ice-50">
+            <p className="display mt-2 text-xl font-semibold text-ice-50">
               Business Operations, Organization &amp; Marketing
             </p>
             <p className="mt-2 text-sm leading-relaxed text-ice-300">

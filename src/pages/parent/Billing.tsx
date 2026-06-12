@@ -62,7 +62,7 @@ export default function BillingPage() {
           </ul>
           <div className="mt-4 flex items-center gap-3">
             <Button variant="ghost" onClick={() => setCompareOpen(true)}>Compare plans</Button>
-            <span className="text-xs text-ice-500">Member since {WHITMAN.joined} · paid Jun 1</span>
+            <span className="text-xs text-ice-400">Member since {WHITMAN.joined} · paid Jun 1</span>
           </div>
         </Card>
 
@@ -128,7 +128,7 @@ export default function BillingPage() {
                 key={t.id}
                 className={`flex flex-col rounded-lg border p-3 ${isCurrent ? 'border-frost-400/50 bg-frost-400/5' : 'border-ice-600/40 bg-ice-900/60'}`}
               >
-                <p className="display text-sm font-semibold uppercase tracking-wide text-ice-50">{t.name}</p>
+                <p className="display text-sm font-semibold text-ice-50">{t.name}</p>
                 <p className="display tabular mt-1 text-xl font-semibold text-ice-50">
                   ${t.price}<span className="text-xs text-ice-400">/mo</span>
                 </p>
@@ -150,7 +150,7 @@ export default function BillingPage() {
             )
           })}
         </div>
-        <p className="mt-3 text-xs text-ice-500">Plan changes are prorated and take effect at the next billing date. No contracts, no cancellation fees.</p>
+        <p className="mt-3 text-xs text-ice-400">Plan changes are prorated and take effect at the next billing date. No contracts, no cancellation fees.</p>
       </Modal>
     </div>
   )

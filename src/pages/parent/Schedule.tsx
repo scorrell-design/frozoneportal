@@ -134,7 +134,7 @@ export default function SchedulePage() {
               <div key={label} className="grid gap-2 px-4 py-3 sm:grid-cols-[110px_1fr] sm:px-5">
                 <p className="eyebrow pt-1 text-ice-400">{label}</p>
                 {items.length === 0 ? (
-                  <p className="text-sm text-ice-500">Rest day — nothing scheduled.</p>
+                  <p className="text-sm text-ice-400">Rest day — nothing scheduled.</p>
                 ) : (
                   <ul className="space-y-2">
                     {items.map((a) => (
@@ -162,12 +162,12 @@ export default function SchedulePage() {
       <div className="mt-6">
         <div className="mb-3 flex items-center gap-2">
           <Plus size={17} className="text-frost-400" aria-hidden />
-          <h2 className="display text-lg font-semibold uppercase tracking-wide text-ice-100">Book something</h2>
+          <h2 className="display text-lg font-semibold text-ice-100">Book something</h2>
         </div>
         <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
           {BOOKABLES.map((b) => (
             <Card key={b.id} className="rise flex flex-col transition-colors hover:border-frost-400/40">
-              <p className="display text-base font-semibold uppercase tracking-wide text-ice-50">{b.name}</p>
+              <p className="display text-base font-semibold text-ice-50">{b.name}</p>
               <p className="mt-1 flex-1 text-xs leading-relaxed text-ice-400">{b.detail}</p>
               <p className="mt-2 text-xs text-ice-300">{b.coach} · {b.durationMin} min</p>
               <div className="mt-3 flex items-center justify-between">

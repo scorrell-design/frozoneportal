@@ -178,7 +178,7 @@ export default function DashboardPage() {
             <Card className="flex items-center gap-4 transition-colors group-hover:border-frost-400/40">
               <q.icon size={22} className="shrink-0 text-frost-400" aria-hidden />
               <div className="min-w-0 flex-1">
-                <p className="display text-base font-semibold uppercase tracking-wide text-ice-50">{q.label}</p>
+                <p className="display text-base font-semibold text-ice-50">{q.label}</p>
                 <p className="truncate text-xs text-ice-400">{q.sub}</p>
               </div>
               <ArrowRight size={16} className="shrink-0 text-ice-500 transition-colors group-hover:text-frost-300" aria-hidden />

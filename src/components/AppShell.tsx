@@ -8,11 +8,13 @@ import { PERSONAS, HOME_FACILITY } from '../data/seed'
 import { ToastHost } from './ui'
 
 export function RopeMark({ size = 28 }: { size?: number }) {
+  // Rope line follows the surrounding text color so the mark works on both
+  // the ink sidebar (white) and light surfaces (charcoal); diamond stays sky.
   return (
     <svg width={size} height={size} viewBox="0 0 32 32" aria-hidden>
-      <rect x="7" y="7" width="18" height="18" rx="3" transform="rotate(45 16 16)" fill="none" stroke="var(--color-frost-400)" strokeWidth="1.6" />
-      <path d="M3 16 H29" stroke="var(--color-ice-50)" strokeWidth="2.2" strokeLinecap="round" />
-      <circle cx="29" cy="16" r="2.2" fill="var(--color-frost-400)" />
+      <rect x="7" y="7" width="18" height="18" rx="3" transform="rotate(45 16 16)" fill="none" stroke="#38bdf8" strokeWidth="1.6" />
+      <path d="M3 16 H29" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" />
+      <circle cx="29" cy="16" r="2.2" fill="#38bdf8" />
     </svg>
   )
 }
@@ -30,14 +32,14 @@ function RoleSwitcher() {
         aria-expanded={open}
         className="flex items-center gap-2 rounded-lg border border-ice-600/50 bg-ice-800 px-2.5 py-1.5 text-sm hover:border-frost-400/50"
       >
-        <span className="display flex h-6 w-6 items-center justify-center rounded-full bg-frost-400 text-xs font-bold text-ice-950">{persona.initials}</span>
+        <span className="display flex h-6 w-6 items-center justify-center rounded-full bg-frost-400 text-xs font-bold text-white">{persona.initials}</span>
         <span className="hidden font-medium sm:block">{persona.name}</span>
         <ChevronDown size={14} className="text-ice-400" />
       </button>
       {open && (
         <>
           <div className="fixed inset-0 z-30" onClick={() => setOpen(false)} aria-hidden />
-          <div role="menu" className="rise absolute right-0 z-40 mt-2 w-64 rounded-xl border border-ice-600/50 bg-ice-850 p-1.5 shadow-2xl">
+          <div role="menu" className="rise absolute right-0 z-40 mt-2 w-64 rounded-xl border border-ice-600/40 bg-ice-850 p-1.5 shadow-lg">
             <p className="eyebrow px-2.5 pb-1 pt-2 text-ice-400">Switch persona</p>
             {PERSONAS.map((p) => (
               <button
@@ -77,18 +79,18 @@ export default function AppShell({ role }: { role: Role }) {
 
   return (
     <div className="flex min-h-screen">
-      {/* Sidebar (desktop) */}
-      <aside className="fixed inset-y-0 left-0 z-20 hidden w-60 flex-col border-r border-ice-600/40 bg-ice-900 md:flex">
+      {/* Sidebar (desktop) — ink rail: navigation recedes, content gets the light */}
+      <aside className="fixed inset-y-0 left-0 z-20 hidden w-60 flex-col bg-ink-900 text-white md:flex">
         <Link to={persona.home} className="flex items-center gap-2.5 px-5 py-5">
           <RopeMark />
           <span>
-            <span className="display block text-lg font-bold uppercase leading-none tracking-widest">Frozone</span>
-            <span className="block text-[10px] font-medium tracking-wider text-ice-400">BY FROZEN ROPES</span>
+            <span className="display block text-lg font-bold uppercase leading-none tracking-widest text-white">Frozone</span>
+            <span className="block text-[10px] font-medium tracking-wider text-white/45">BY FROZEN ROPES</span>
           </span>
         </Link>
-        <div className="mx-4 mb-3 rounded-lg border border-ice-600/40 bg-ice-800 px-3 py-2">
-          <p className="eyebrow text-frost-400">{role === 'hq' ? 'Network HQ' : 'Facility'}</p>
-          <p className="text-sm font-semibold text-ice-100">{role === 'hq' ? 'Frozen Ropes USA' : `Frozen Ropes ${HOME_FACILITY.name}`}</p>
+        <div className="mx-4 mb-3 rounded-lg bg-ink-800 px-3 py-2">
+          <p className="eyebrow text-sky-300">{role === 'hq' ? 'Network HQ' : 'Facility'}</p>
+          <p className="text-sm font-semibold text-white">{role === 'hq' ? 'Frozen Ropes USA' : `Frozen Ropes ${HOME_FACILITY.name}`}</p>
         </div>
         <nav className="flex-1 space-y-0.5 overflow-y-auto px-3" aria-label="Primary">
           {items.map((it) => (
@@ -98,7 +100,7 @@ export default function AppShell({ role }: { role: Role }) {
               end={it.to === persona.home}
               className={({ isActive }) =>
                 `flex items-center gap-2.5 rounded-lg px-2.5 py-2 text-sm font-medium transition-colors ${
-                  isActive ? 'bg-frost-400/15 text-frost-300' : 'text-ice-300 hover:bg-ice-700/60 hover:text-ice-100'
+                  isActive ? 'bg-white/10 text-white' : 'text-white/55 hover:bg-white/5 hover:text-white'
                 }`
               }
             >
@@ -112,7 +114,7 @@ export default function AppShell({ role }: { role: Role }) {
             logout()
             nav('/')
           }}
-          className="m-3 flex items-center gap-2.5 rounded-lg px-2.5 py-2 text-sm font-medium text-ice-400 hover:bg-ice-700/60 hover:text-ice-100"
+          className="m-3 flex items-center gap-2.5 rounded-lg px-2.5 py-2 text-sm font-medium text-white/55 hover:bg-white/5 hover:text-white"
         >
           <LogOut size={17} aria-hidden /> Sign out
         </button>
@@ -120,8 +122,8 @@ export default function AppShell({ role }: { role: Role }) {
 
       {/* Main */}
       <div className="flex min-w-0 flex-1 flex-col md:pl-60">
-        <header className="sticky top-0 z-20 flex items-center justify-between gap-3 border-b border-ice-600/40 bg-ice-900/90 px-4 py-3 backdrop-blur md:px-8">
-          <Link to={persona.home} className="flex items-center gap-2 md:hidden">
+        <header className="sticky top-0 z-20 flex items-center justify-between gap-3 border-b border-ice-600/30 bg-ice-850/85 px-4 py-3 backdrop-blur md:px-8">
+          <Link to={persona.home} className="flex items-center gap-2 text-ice-50 md:hidden">
             <RopeMark size={24} />
             <span className="display text-base font-bold uppercase tracking-widest">Frozone</span>
           </Link>
@@ -129,9 +131,9 @@ export default function AppShell({ role }: { role: Role }) {
             {new Date().toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' })} · <span className="text-ice-200">{persona.title}</span>
           </p>
           <div className="flex items-center gap-2">
-            <button aria-label="Notifications (3 unread)" className="relative rounded-lg border border-ice-600/50 bg-ice-800 p-2 hover:border-frost-400/50">
+            <button aria-label="Notifications (3 unread)" className="relative rounded-lg border border-ice-600/50 bg-ice-800 p-2 text-ice-300 hover:border-ice-500 hover:text-ice-100">
               <Bell size={16} />
-              <span className="absolute -right-0.5 -top-0.5 flex h-3.5 w-3.5 items-center justify-center rounded-full bg-clay-500 text-[9px] font-bold">3</span>
+              <span className="absolute -right-0.5 -top-0.5 flex h-3.5 w-3.5 items-center justify-center rounded-full bg-clay-500 text-[9px] font-bold text-white">3</span>
             </button>
             <RoleSwitcher />
           </div>
@@ -143,14 +145,14 @@ export default function AppShell({ role }: { role: Role }) {
       </div>
 
       {/* Mobile bottom bar */}
-      <nav aria-label="Primary mobile" className="fixed inset-x-0 bottom-0 z-30 flex border-t border-ice-600/50 bg-ice-900/95 backdrop-blur md:hidden">
+      <nav aria-label="Primary mobile" className="fixed inset-x-0 bottom-0 z-30 flex border-t border-ice-600/30 bg-ice-850/95 backdrop-blur md:hidden">
         {mobileItems.map((it) => (
           <NavLink
             key={it.to}
             to={it.to}
             end={it.to === persona.home}
             className={({ isActive }) =>
-              `flex min-h-[52px] flex-1 flex-col items-center justify-center gap-0.5 text-[10px] font-semibold ${isActive ? 'text-frost-300' : 'text-ice-400'}`
+              `flex min-h-[52px] flex-1 flex-col items-center justify-center gap-0.5 text-[10px] font-semibold ${isActive ? 'text-frost-400' : 'text-ice-400'}`
             }
           >
             <it.icon size={18} aria-hidden />
@@ -167,10 +169,10 @@ export default function AppShell({ role }: { role: Role }) {
 
       {/* Mobile "More" sheet */}
       {moreOpen && (
-        <div className="fixed inset-0 z-40 bg-ice-950/70 backdrop-blur-sm md:hidden" onClick={() => setMoreOpen(false)}>
-          <div className="rise absolute inset-x-0 bottom-0 rounded-t-2xl border-t border-ice-600/50 bg-ice-850 p-4" onClick={(e) => e.stopPropagation()}>
+        <div className="fixed inset-0 z-40 bg-ink-950/35 backdrop-blur-[2px] md:hidden" onClick={() => setMoreOpen(false)}>
+          <div className="rise absolute inset-x-0 bottom-0 rounded-t-2xl border-t border-ice-600/40 bg-ice-850 p-4 shadow-xl" onClick={(e) => e.stopPropagation()}>
             <div className="mb-2 flex items-center justify-between">
-              <p className="display text-lg font-semibold uppercase tracking-wide">All destinations</p>
+              <p className="display text-lg font-semibold">All destinations</p>
               <button onClick={() => setMoreOpen(false)} aria-label="Close" className="rounded p-1 text-ice-400">
                 <X size={18} />
               </button>

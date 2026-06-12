@@ -82,7 +82,7 @@ export default function MessagesPage() {
           <div className="flex items-center gap-3 border-b border-ice-600/30 px-4 py-3 sm:px-5">
             <ThreadIcon thread={active} />
             <div className="min-w-0">
-              <p className="display truncate text-base font-semibold uppercase tracking-wide text-ice-50">{active.with}</p>
+              <p className="display truncate text-base font-semibold text-ice-50">{active.with}</p>
               <p className="text-xs text-ice-400">{active.withRole} · Frozen Ropes Dawsonville</p>
             </div>
           </div>
@@ -91,10 +91,10 @@ export default function MessagesPage() {
             {activeMessages.map((m, i) => (
               <div key={i} className={`flex flex-col ${m.from === 'me' ? 'items-end' : 'items-start'}`}>
                 <div
-                  className={`max-w-[82%] rounded-xl border px-3.5 py-2.5 text-sm leading-relaxed ${
+                  className={`max-w-[82%] rounded-xl px-3.5 py-2.5 text-sm leading-relaxed ${
                     m.from === 'me'
-                      ? 'rounded-br-sm border-frost-400/30 bg-frost-400/15 text-ice-50'
-                      : 'rounded-bl-sm border-ice-600/50 bg-ice-700/60 text-ice-100'
+                      ? 'rounded-br-sm bg-frost-400 text-white'
+                      : 'rounded-bl-sm border border-ice-600/40 bg-ice-900 text-ice-100'
                   }`}
                 >
                   {m.text}
@@ -121,7 +121,7 @@ export default function MessagesPage() {
         </Card>
       </div>
 
-      <p className="mt-3 text-xs text-ice-500">
+      <p className="mt-3 text-xs text-ice-400">
         Messages go straight to staff — never to other families. For anything urgent, call the front desk at (706) 555-0100.
       </p>
     </div>

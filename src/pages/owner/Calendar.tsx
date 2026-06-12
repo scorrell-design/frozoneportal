@@ -71,7 +71,7 @@ function WeekView({ onOpen }: { onOpen: (c: ProgramClass) => void }) {
                   {classes.map((c) => <ClassBlock key={c.id} cls={c} onOpen={onOpen} />)}
                 </div>
               ) : (
-                <p className="px-0.5 py-3 text-center text-[11px] text-ice-500">Open day</p>
+                <p className="px-0.5 py-3 text-center text-[11px] text-ice-400">Open day</p>
               )}
             </div>
           )
@@ -86,7 +86,7 @@ function CageGrid({ onOpen }: { onOpen: (c: ProgramClass) => void }) {
     <div className="overflow-x-auto pb-2">
       <div className="min-w-[1000px]">
         <div className="grid grid-cols-[110px_repeat(7,1fr)] gap-1.5">
-          <span className="eyebrow px-1 py-1.5 text-ice-500">Resource</span>
+          <span className="eyebrow px-1 py-1.5 text-ice-400">Resource</span>
           {DAYS.map((day, i) => (
             <div key={day} className={`flex items-center justify-center gap-1.5 rounded px-1 py-1.5 ${i === TODAY ? 'bg-frost-400/10' : ''}`}>
               {i === TODAY && <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-frost-400" aria-hidden />}

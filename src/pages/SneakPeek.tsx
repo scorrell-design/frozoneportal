@@ -47,11 +47,11 @@ function Simulator() {
   )
 
   return (
-    <div className="grid gap-8 rounded-2xl border border-ice-600/50 bg-ice-850/80 p-6 backdrop-blur md:grid-cols-2 md:p-10">
+    <div className="grid gap-8 rounded-2xl border border-ice-600/40 bg-ice-850 p-6 shadow-sm md:grid-cols-2 md:p-10">
       <div className="space-y-6">
         <div>
           <p className="eyebrow text-frost-400">The Blueprint Simulator</p>
-          <h3 className="display mt-1 text-2xl font-semibold uppercase tracking-wide">Model your facility</h3>
+          <h3 className="display mt-1 text-3xl font-semibold text-ice-50">Model your facility</h3>
           <p className="mt-2 text-sm text-ice-300">Powered by the same Blueprint benchmarks our owners run on. Drag the levers.</p>
         </div>
         <Slider label="Members" value={members} set={setMembers} min={80} max={450} step={10} unit="" />
@@ -82,23 +82,23 @@ function Simulator() {
 export default function SneakPeek() {
   const [sent, setSent] = useState(false)
   return (
-    <div className="relative min-h-screen overflow-hidden">
-      <div aria-hidden className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_50%_-20%,#13304a_0%,#0a1420_50%,#070d16_100%)]" />
+    <div className="relative min-h-screen overflow-hidden bg-ice-950">
+      <div aria-hidden className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_50%_-20%,#e8f1f8_0%,#faf9f7_55%)]" />
 
       <header className="relative z-10 mx-auto flex w-full max-w-6xl items-center justify-between px-5 py-5">
-        <div className="flex items-center gap-2.5">
+        <div className="flex items-center gap-2.5 text-ice-50">
           <RopeMark size={30} />
           <span className="display text-xl font-bold uppercase tracking-[0.2em]">Frozone</span>
           <Chip tone="gold">Sneak Peek</Chip>
         </div>
-        <Link to="/" className="text-sm font-medium text-ice-300 hover:text-frost-300">Persona login →</Link>
+        <Link to="/" className="text-sm font-medium text-ice-300 hover:text-frost-400">Persona login →</Link>
       </header>
 
       <main className="relative z-10 mx-auto w-full max-w-6xl px-5 pb-24">
         {/* Hero */}
         <section className="py-16 text-center sm:py-24">
           <p className="eyebrow text-frost-400">For prospective owners</p>
-          <h1 className="display mx-auto mt-3 max-w-3xl text-5xl font-bold uppercase leading-[0.95] tracking-wide sm:text-7xl">
+          <h1 className="display mx-auto mt-3 max-w-3xl text-5xl font-bold leading-[0.98] text-ice-50 sm:text-7xl">
             Own a baseball business, <span className="text-frost-400">not a guessing game.</span>
           </h1>
           <p className="mx-auto mt-6 max-w-xl text-base text-ice-300">
@@ -120,12 +120,12 @@ export default function SneakPeek() {
         {/* What you get */}
         <section className="py-10">
           <p className="eyebrow text-center text-frost-400">What the license includes</p>
-          <h2 className="display mt-2 text-center text-3xl font-semibold uppercase tracking-wide sm:text-4xl">One system. Soup to nuts.</h2>
+          <h2 className="display mt-2 text-center text-3xl font-semibold text-ice-50 sm:text-4xl">One system. Soup to nuts.</h2>
           <div className="mt-10 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
             {PILLAR_CARDS.map((c, i) => (
-              <div key={c.title} className="rise rounded-2xl border border-ice-600/40 bg-ice-800/70 p-5" style={{ animationDelay: `${i * 50}ms` }}>
+              <div key={c.title} className="rise rounded-2xl border border-ice-600/40 bg-ice-850 p-5 shadow-xs" style={{ animationDelay: `${i * 50}ms` }}>
                 <c.icon size={22} className="text-frost-400" aria-hidden />
-                <h3 className="display mt-3 text-lg font-semibold uppercase tracking-wide">{c.title}</h3>
+                <h3 className="display mt-3 text-xl font-semibold text-ice-50">{c.title}</h3>
                 <p className="mt-1.5 text-sm leading-relaxed text-ice-300">{c.body}</p>
               </div>
             ))}
@@ -145,9 +145,9 @@ export default function SneakPeek() {
               { q: '"Parents stay because they can finally see the development they\'re paying for. Retention went up nine points."', a: 'Stephen Abbatine, Boston MA — owner since 2016' },
               { q: '"Points my families earn here get spent in our pro shop on travel weekends in Tampa. The network is the moat."', a: 'R. Calloway, San Diego CA — owner since 2004' },
             ].map((t) => (
-              <figure key={t.a} className="rounded-2xl border border-ice-600/40 bg-ice-800/70 p-5">
+              <figure key={t.a} className="rounded-2xl border border-ice-600/40 bg-ice-850 p-5 shadow-xs">
                 <blockquote className="text-sm leading-relaxed text-ice-100">{t.q}</blockquote>
-                <figcaption className="mt-3 text-xs font-medium text-frost-300/80">{t.a}</figcaption>
+                <figcaption className="mt-3 text-xs font-medium text-frost-400">{t.a}</figcaption>
               </figure>
             ))}
           </div>
@@ -155,7 +155,7 @@ export default function SneakPeek() {
 
         {/* CTA */}
         <section className="py-14 text-center">
-          <h2 className="display text-3xl font-semibold uppercase tracking-wide sm:text-4xl">Ready to see the whole field?</h2>
+          <h2 className="display text-3xl font-semibold text-ice-50 sm:text-4xl">Ready to see the whole field?</h2>
           <p className="mx-auto mt-3 max-w-md text-sm text-ice-300">
             Request your invite and we'll open a full Frozone sandbox for your market, plus a working session with Frozen Ropes USA.
           </p>

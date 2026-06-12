@@ -56,9 +56,9 @@ export default function PlayerSchedule() {
                 has ? 'border-frost-400/40 bg-frost-400/10' : 'border-ice-600/40 bg-ice-900'
               }`}
             >
-              <span className={`eyebrow ${has ? 'text-frost-300' : 'text-ice-500'}`}>{d}</span>
+              <span className={`eyebrow ${has ? 'text-frost-300' : 'text-ice-400'}`}>{d}</span>
               <span
-                className={`h-1.5 w-1.5 rounded-full ${has ? 'bg-frost-400 shadow-[0_0_6px_rgba(56,189,248,0.6)]' : 'bg-ice-700'}`}
+                className={`h-1.5 w-1.5 rounded-full ${has ? 'bg-frost-400' : 'bg-ice-700'}`}
                 aria-hidden
               />
               <span className="sr-only">{has ? `Session ${DAYS[i]}` : `No session ${DAYS[i]}`}</span>
@@ -91,12 +91,12 @@ export default function PlayerSchedule() {
                       <span
                         className={`flex h-12 w-16 shrink-0 flex-col items-center justify-center rounded-lg border ${
                           isPrivate
-                            ? 'border-frost-400/50 bg-ice-900 shadow-[0_0_14px_rgba(56,189,248,0.2)]'
+                            ? 'border-frost-400/50 bg-ice-900'
                             : 'border-ice-600/50 bg-ice-900'
                         }`}
                       >
                         <span className="display tabular text-sm font-bold text-ice-100">{fmtTime(c.start).replace(/ [AP]M/, '')}</span>
-                        <span className="eyebrow text-ice-500">{fmtTime(c.start).slice(-2)}</span>
+                        <span className="eyebrow text-ice-400">{fmtTime(c.start).slice(-2)}</span>
                       </span>
                       <div className="min-w-0 flex-1">
                         <div className="flex flex-wrap items-center gap-2">
@@ -127,7 +127,7 @@ export default function PlayerSchedule() {
         })}
       </div>
 
-      <p className="mt-4 flex items-center gap-2 text-xs text-ice-500">
+      <p className="mt-4 flex items-center gap-2 text-xs text-ice-400">
         <CalendarDays size={14} aria-hidden />
         Rock Ready re-test: July 1, 4:00 PM, Cage 1 — it's on the board.
       </p>

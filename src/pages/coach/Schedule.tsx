@@ -75,14 +75,14 @@ export default function CoachSchedule() {
           return (
             <section key={d} aria-label={DAY_FULL[d]} className="rise" style={{ animationDelay: `${col * 40}ms` }}>
               <header className="mb-2 flex items-baseline justify-between px-1">
-                <h2 className="display text-sm font-semibold uppercase tracking-wider text-ice-100">{DAY_FULL[d]}</h2>
+                <h2 className="display text-sm font-semibold text-ice-100">{DAY_FULL[d]}</h2>
                 <span className="tabular text-[11px] text-ice-400">
                   {sessions.length === 0 ? 'Open' : `${sessions.length} ${sessions.length === 1 ? 'session' : 'sessions'}`}
                 </span>
               </header>
               <div className="space-y-2">
                 {sessions.length === 0 ? (
-                  <div className="rounded-[10px] border border-dashed border-ice-600/50 px-3 py-6 text-center text-xs text-ice-500">
+                  <div className="rounded-[10px] border border-dashed border-ice-600/50 px-3 py-6 text-center text-xs text-ice-400">
                     No sessions — open for makeups and privates
                   </div>
                 ) : (

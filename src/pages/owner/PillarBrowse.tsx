@@ -92,7 +92,7 @@ export default function PillarBrowsePage() {
                     </span>
                     {r.status === 'draft' && <Chip tone="gold">Draft</Chip>}
                   </div>
-                  <p className="display mt-2.5 text-lg font-semibold uppercase leading-tight tracking-wide text-ice-50">{r.title}</p>
+                  <p className="display mt-2.5 text-lg font-semibold leading-tight text-ice-50">{r.title}</p>
                   <p className="mt-1.5 line-clamp-2 text-xs leading-relaxed text-ice-300">{r.description}</p>
                   <p className="tabular mt-3 flex items-center gap-3 text-[11px] text-ice-400">
                     <span>{r.meta}</span>

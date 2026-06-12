@@ -22,7 +22,7 @@ export default function BoomPage() {
             <Chip tone="frost" icon={<CalendarDays size={11} aria-hidden />}>Next call · {next.date}</Chip>
             <Chip tone="ice" icon={<Mic size={11} aria-hidden />}>Live · 60 min</Chip>
           </div>
-          <h2 className="display mt-3 text-3xl font-semibold uppercase tracking-wide text-ice-50">{next.theme}</h2>
+          <h2 className="display mt-3 text-3xl font-semibold text-ice-50">{next.theme}</h2>
           <p className="mt-1 text-sm text-ice-300">
             Hosted by Tony Abbatine, Frozen Ropes USA — all {NETWORK_SIZE} facility owners on the line.
           </p>
@@ -71,7 +71,7 @@ export default function BoomPage() {
       </div>
 
       {/* Past calls */}
-      <h2 className="display mt-6 mb-3 text-lg font-semibold uppercase tracking-wide text-ice-100">Past calls</h2>
+      <h2 className="display mt-6 mb-3 text-lg font-semibold text-ice-100">Past calls</h2>
       <div className="grid gap-3 lg:grid-cols-3">
         {past.map((call, i) => (
           <div key={call.id} className="rise" style={{ animationDelay: `${100 + i * 50}ms` }}>
@@ -80,7 +80,7 @@ export default function BoomPage() {
                 <span className="tabular text-xs text-ice-400">{call.date}</span>
                 {call.recorded && <Chip tone="frost" icon={<Video size={11} aria-hidden />}>Recorded</Chip>}
               </div>
-              <h3 className="display mt-2 text-xl font-semibold uppercase tracking-wide text-ice-50">{call.theme}</h3>
+              <h3 className="display mt-2 text-xl font-semibold text-ice-50">{call.theme}</h3>
               <p className="tabular mt-1 flex items-center gap-1.5 text-xs text-ice-400">
                 <Users size={12} aria-hidden /> {call.attendance}/{NETWORK_SIZE} facilities
               </p>

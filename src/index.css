@@ -1,36 +1,58 @@
 @import "tailwindcss";
 
+/*
+ * Day Game — the Frozone light theme.
+ *
+ * The neutral ramp is intentionally inverted relative to its names:
+ * pages were written against a dark theme where `ice-950` meant "deepest
+ * surface" and `ice-50` meant "primary text". Keeping the names and flipping
+ * the values turns every screen light in one move, with component-level
+ * tuning done in ui.tsx / AppShell. Accents are dark enough to pass
+ * WCAG AA as text on white; status colors (grass/clay/gold) are semantic
+ * only — they always mean paid/positive, due/negative, rewards.
+ */
 @theme {
-  --color-ice-950: #070d16;
-  --color-ice-900: #0a1420;
-  --color-ice-850: #0d1826;
-  --color-ice-800: #101d2e;
-  --color-ice-700: #1a2b40;
-  --color-ice-600: #273b54;
-  --color-ice-500: #3a5170;
-  --color-ice-400: #577190;
-  --color-ice-300: #8aa1bc;
-  --color-ice-200: #b9c8da;
-  --color-ice-100: #d8e2ee;
-  --color-ice-50: #eff4fa;
+  /* Warm paper neutrals — surfaces light, text charcoal */
+  --color-ice-950: #faf9f7; /* page background */
+  --color-ice-900: #f4f2ee; /* inset surfaces, header */
+  --color-ice-850: #ffffff; /* modals, menus */
+  --color-ice-800: #ffffff; /* cards */
+  --color-ice-700: #f0ede8; /* hover, progress tracks */
+  --color-ice-600: #a8a094; /* borders (used at low alpha) */
+  --color-ice-500: #8d8578; /* muted borders, dim icons */
+  --color-ice-400: #6f6759; /* muted text */
+  --color-ice-300: #5b5447; /* secondary text */
+  --color-ice-200: #464036; /* body text */
+  --color-ice-100: #322d25; /* strong text */
+  --color-ice-50: #211d17;  /* primary text */
 
-  --color-frost-500: #0ea5e9;
-  --color-frost-400: #38bdf8;
-  --color-frost-300: #7dd3fc;
-  --color-frost-200: #bae6fd;
+  /* The one accent: deep frost blue (brand), AA on white */
+  --color-frost-500: #075985;
+  --color-frost-400: #0369a1;
+  --color-frost-300: #0369a1; /* link text — same as accent, hover darkens */
+  --color-frost-200: #0c4a6e;
 
-  --color-clay-600: #9a3412;
+  /* Status: due / negative */
+  --color-clay-600: #7c2d12;
   --color-clay-500: #c2410c;
-  --color-clay-400: #ea580c;
-  --color-clay-300: #fb923c;
+  --color-clay-400: #c2410c;
+  --color-clay-300: #9a3412;
 
-  --color-grass-600: #15803d;
-  --color-grass-500: #16a34a;
-  --color-grass-400: #4ade80;
+  /* Status: paid / positive */
+  --color-grass-600: #14532d;
+  --color-grass-500: #15803d;
+  --color-grass-400: #166534;
 
-  --color-gold-500: #eab308;
-  --color-gold-400: #facc15;
-  --color-gold-300: #fde047;
+  /* Status: rewards */
+  --color-gold-500: #854d0e;
+  --color-gold-400: #b45309;
+  --color-gold-300: #92400e;
+
+  /* Ink — the dark navigation rail (sidebar, mobile bar accents) */
+  --color-ink-950: #101826;
+  --color-ink-900: #16202e;
+  --color-ink-800: #1f2c40;
+  --color-ink-700: #2a3a52;
 
   --color-chalk: #f8fafc;
 
@@ -41,7 +63,7 @@
 }
 
 :root {
-  color-scheme: dark;
+  color-scheme: light;
 }
 
 html,
@@ -51,14 +73,8 @@ body,
 }
 
 body {
-  @apply bg-ice-950 text-ice-50 font-sans antialiased;
+  @apply bg-ice-950 text-ice-100 font-sans antialiased;
   font-feature-settings: "cv11";
-}
-
-/* Day Game (light) theme for parent + player surfaces */
-[data-theme="day"] {
-  color-scheme: light;
-  @apply bg-chalk text-slate-900;
 }
 
 .tabular {
@@ -84,10 +100,7 @@ body {
 /* Scrollbars */
 * {
   scrollbar-width: thin;
-  scrollbar-color: var(--color-ice-600) transparent;
-}
-[data-theme="day"] * {
-  scrollbar-color: #cbd5e1 transparent;
+  scrollbar-color: #d6d1c8 transparent;
 }
 
 @keyframes rope {

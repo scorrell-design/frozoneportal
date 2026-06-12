@@ -33,9 +33,9 @@ function Swatch({ product, size = 36 }: { product: Product; size?: number }) {
         width: size,
         height: size,
         fontSize: size * 0.36,
-        background: `linear-gradient(135deg, hsl(${product.hue} 55% 28%), hsl(${product.hue} 60% 18%))`,
-        color: `hsl(${product.hue} 80% 82%)`,
-        border: `1px solid hsl(${product.hue} 50% 38%)`,
+        background: `linear-gradient(135deg, hsl(${product.hue} 50% 90%), hsl(${product.hue} 45% 80%))`,
+        color: `hsl(${product.hue} 50% 30%)`,
+        border: `1px solid hsl(${product.hue} 35% 68%)`,
       }}
     >
       {initials}

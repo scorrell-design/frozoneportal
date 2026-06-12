@@ -22,7 +22,7 @@ export default function ProgressPage() {
           <div className="flex items-center gap-3">
             <Avatar name={TYLER.name} hue={TYLER.hue} size={44} />
             <div className="min-w-0">
-              <p className="display truncate text-xl font-semibold uppercase tracking-wide text-ice-50">{TYLER.name}</p>
+              <p className="display truncate text-xl font-semibold text-ice-50">{TYLER.name}</p>
               <p className="text-xs text-ice-400">#{TYLER.jersey} · {TYLER.ageGroup} · {TYLER.position} · {TYLER.program}</p>
             </div>
           </div>
@@ -66,7 +66,7 @@ export default function ProgressPage() {
       <div className="mt-6">
         <div className="mb-3 flex items-center gap-2">
           <ClipboardList size={17} className="text-frost-400" aria-hidden />
-          <h2 className="display text-lg font-semibold uppercase tracking-wide text-ice-100">Session notes from the cage</h2>
+          <h2 className="display text-lg font-semibold text-ice-100">Session notes from the cage</h2>
         </div>
         <div className="grid gap-3 lg:grid-cols-3">
           {SESSION_NOTES.map((note, i) => (
@@ -83,7 +83,7 @@ export default function ProgressPage() {
                 ))}
               </div>
               <p className="mt-3 border-l-2 border-frost-400/50 pl-3 text-sm italic text-ice-300">“{note.nextFocus}”</p>
-              <p className="mt-3 text-xs text-ice-500">
+              <p className="mt-3 text-xs text-ice-400">
                 {staffById(note.coachId)?.name}{i === 0 ? ' · most recent' : ''}
               </p>
             </Card>
@@ -96,7 +96,7 @@ export default function ProgressPage() {
         <div className="flex items-start gap-3">
           <BadgeCheck size={20} className="mt-0.5 shrink-0 text-frost-400" aria-hidden />
           <div>
-            <p className="display text-base font-semibold uppercase tracking-wide text-ice-50">Numbers a parent can trust</p>
+            <p className="display text-base font-semibold text-ice-50">Numbers a parent can trust</p>
             <p className="mt-1 text-sm leading-relaxed text-ice-300">
               Every score on this page was recorded in person by Coach Marcus during a scheduled eval — no
               self-reported numbers, no app guesses. If a number moves, it's because Tyler moved it.

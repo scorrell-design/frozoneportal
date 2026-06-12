@@ -70,7 +70,8 @@ netlify deploy --build --prod
 | `docs/01-research.md` | Competitor teardown matrix, gap analysis, tech & design research |
 | `docs/02-prd.md` | PRD: epics, user stories, acceptance criteria |
 | `docs/03-information-architecture.md` | Full sitemap + routing map with role access |
-| `docs/04-design-system.md` | "Night Game" design system: tokens, type, motion, a11y |
+| `docs/04-design-system.md` | "Day Game" design system: tokens, type, motion, a11y |
 | `docs/05-architecture.md` | Stack decision and source layout |
 | `docs/06-innovation.md` | The six features competitors don't have |
+| `docs/07-reference-comparison.md` | Competitive audit vs. dested/frozone + redesign rationale |
 | `docs/07-qa.md` | QA pass + Lighthouse results |

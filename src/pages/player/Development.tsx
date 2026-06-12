@@ -22,7 +22,7 @@ export default function PlayerDevelopment() {
         <Card className="rise">
           <CardTitle action={<Chip tone="frost">Q2 2026 eval</Chip>}>The shape of your game</CardTitle>
           <SkillRadar indexes={TYLER.indexes} height={280} />
-          <p className="mt-1 text-xs text-ice-500">
+          <p className="mt-1 text-xs text-ice-400">
             Recorded in person by {coachName}. Next re-test July 1, Cage 1.
           </p>
         </Card>
@@ -45,7 +45,7 @@ export default function PlayerDevelopment() {
             Composite over time
           </CardTitle>
           <TrendChart data={compositeData} height={230} yDomain={[50, 90]} />
-          <p className="mt-1 text-xs text-ice-500">
+          <p className="mt-1 text-xs text-ice-400">
             Eight quarterly evals. The dip in Q1 25 was the growth spurt — you came back stronger.
           </p>
         </Card>
@@ -58,7 +58,7 @@ export default function PlayerDevelopment() {
             </span>
             <div>
               <p className="eyebrow text-gold-300">Your gap</p>
-              <p className="display mt-1 text-xl font-semibold uppercase tracking-wide text-ice-50">Grip Index 64</p>
+              <p className="display mt-1 text-xl font-semibold text-ice-50">Grip Index 64</p>
             </div>
           </div>
           <p className="mt-3 text-sm leading-relaxed text-ice-200">
@@ -105,7 +105,7 @@ export default function PlayerDevelopment() {
               <div className="flex flex-wrap items-center gap-2">
                 <MessageSquare size={14} className="text-frost-400" aria-hidden />
                 <p className="text-sm font-semibold text-frost-300">{n.focus}</p>
-                <span className="ml-auto text-xs text-ice-500">{n.date}</span>
+                <span className="ml-auto text-xs text-ice-400">{n.date}</span>
               </div>
               <p className="mt-2 text-sm leading-relaxed text-ice-200">{n.workedOn}</p>
               <p className="mt-2.5 border-l-2 border-frost-400/50 pl-3 text-sm italic text-ice-300">“{n.nextFocus}”</p>

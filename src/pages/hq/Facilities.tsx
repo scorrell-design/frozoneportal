@@ -65,7 +65,7 @@ export default function FacilitiesPage() {
                   onClick={() => setSortKey(s.key)}
                   aria-pressed={sortKey === s.key}
                   className={`inline-flex items-center gap-1 rounded-md px-2.5 py-1 text-xs font-semibold transition-colors ${
-                    sortKey === s.key ? 'bg-frost-400 text-ice-950' : 'text-ice-300 hover:bg-ice-700/70 hover:text-ice-100'
+                    sortKey === s.key ? 'bg-frost-400 text-white' : 'text-ice-300 hover:bg-ice-700/70 hover:text-ice-100'
                   }`}
                 >
                   {sortKey === s.key && <ArrowDown size={11} aria-hidden />}

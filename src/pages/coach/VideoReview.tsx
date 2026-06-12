@@ -17,14 +17,14 @@ const confColor = (c: number) =>
 function PlayGlyph({ size = 44 }: { size?: number }) {
   return (
     <svg width={size} height={size} viewBox="0 0 44 44" aria-hidden>
-      <circle cx="22" cy="22" r="21" fill="rgba(7,13,22,0.55)" stroke="rgba(239,244,250,0.35)" />
-      <path d="M17.5 13.5 L31 22 L17.5 30.5 Z" fill="var(--color-ice-50)" />
+      <circle cx="22" cy="22" r="21" fill="rgba(255,255,255,0.12)" stroke="rgba(255,255,255,0.35)" />
+      <path d="M17.5 13.5 L31 22 L17.5 30.5 Z" fill="#ffffff" />
     </svg>
   )
 }
 
 const thumbBg = (hue: number) =>
-  `linear-gradient(135deg, hsl(${hue} 45% 26%), hsl(${(hue + 40) % 360} 55% 13%))`
+  `linear-gradient(135deg, hsl(${hue} 50% 90%), hsl(${hue} 45% 80%))`
 
 export default function VideoReview() {
   const [videos, setVideos] = useState<SessionVideo[]>(() =>
@@ -70,7 +70,7 @@ export default function VideoReview() {
         <div className="flex items-start gap-3">
           <ShieldCheck size={22} className="mt-0.5 shrink-0 text-frost-300" aria-hidden />
           <div>
-            <p className="display text-lg font-semibold uppercase tracking-wide text-ice-50">
+            <p className="display text-lg font-semibold text-ice-50">
               AI takes the first pass. Nothing reaches a parent until you approve it.
             </p>
             <p className="mt-1 text-sm text-ice-300">
@@ -97,7 +97,7 @@ export default function VideoReview() {
                 aria-label={`Open ${v.title} for ${vp?.name ?? 'player'}`}
                 className={`rise flex w-full items-center gap-3 rounded-[10px] border p-3 text-left transition-colors ${
                   active
-                    ? 'border-frost-400/70 bg-ice-800 shadow-[0_0_16px_rgba(56,189,248,0.12)]'
+                    ? 'border-frost-400/70 bg-ice-800 shadow-xs'
                     : 'border-ice-600/40 bg-ice-850 hover:border-ice-500'
                 }`}
                 style={{ animationDelay: `${60 + i * 50}ms` }}
@@ -108,7 +108,7 @@ export default function VideoReview() {
                   aria-hidden
                 >
                   <svg width="18" height="18" viewBox="0 0 18 18">
-                    <path d="M5 3 L15 9 L5 15 Z" fill="rgba(239,244,250,0.9)" />
+                    <path d="M5 3 L15 9 L5 15 Z" fill={`hsl(${v.hue} 50% 30%)`} />
                   </svg>
                 </span>
                 <span className="min-w-0 flex-1">
@@ -136,16 +136,15 @@ export default function VideoReview() {
 
           {/* Player area */}
           <div
-            className="relative flex h-52 items-center justify-center overflow-hidden rounded-[10px] sm:h-64"
-            style={{ background: thumbBg(selected.hue) }}
+            className="relative flex h-52 items-center justify-center overflow-hidden rounded-[10px] bg-ink-900 sm:h-64"
             role="img"
             aria-label={`Session video: ${selected.title}, ${fmtDur(selected.durationSec)}`}
           >
             <PlayGlyph size={56} />
-            <span className="tabular absolute bottom-2.5 right-3 rounded bg-ice-950/70 px-1.5 py-0.5 text-xs font-semibold text-ice-100">
+            <span className="tabular absolute bottom-2.5 right-3 rounded bg-ink-950/70 px-1.5 py-0.5 text-xs font-semibold text-white">
               {fmtDur(selected.durationSec)}
             </span>
-            <span className="absolute left-3 top-2.5 rounded bg-ice-950/70 px-1.5 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-frost-300">
+            <span className="absolute left-3 top-2.5 rounded bg-ink-950/70 px-1.5 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-white">
               Cage cam
             </span>
           </div>
@@ -153,7 +152,7 @@ export default function VideoReview() {
           {selected.status === 'processing' ? (
             <div className="mt-4 flex flex-col items-center rounded-[10px] border border-dashed border-ice-600/50 px-6 py-10 text-center">
               <Loader2 size={26} className="animate-spin text-frost-400" aria-hidden />
-              <p className="display mt-3 text-lg font-semibold uppercase tracking-wide text-ice-100">
+              <p className="display mt-3 text-lg font-semibold text-ice-100">
                 AI first pass in progress
               </p>
               <p className="mt-1 max-w-sm text-sm text-ice-400">
@@ -168,7 +167,7 @@ export default function VideoReview() {
             <>
               {/* Observations */}
               <div className="mt-4 flex items-center justify-between">
-                <h3 className="display text-sm font-semibold uppercase tracking-wider text-ice-200">
+                <h3 className="display text-sm font-semibold text-ice-200">
                   AI observations
                 </h3>
                 <span className="tabular text-xs text-ice-400" aria-live="polite">
@@ -192,7 +191,7 @@ export default function VideoReview() {
                           <button
                             onClick={() => resolve(o.id, 'confirmed')}
                             aria-label={`Confirm observation: ${o.text}`}
-                            className="inline-flex items-center gap-1 rounded-md border border-grass-500/50 bg-grass-500/10 px-2.5 py-1.5 text-xs font-semibold text-grass-400 transition-colors hover:bg-grass-500 hover:text-ice-950"
+                            className="inline-flex items-center gap-1 rounded-md border border-grass-500/50 bg-grass-500/10 px-2.5 py-1.5 text-xs font-semibold text-grass-400 transition-colors hover:bg-grass-500 hover:text-white"
                           >
                             <Check size={13} aria-hidden /> Confirm
                           </button>
@@ -211,7 +210,7 @@ export default function VideoReview() {
                       ) : null}
                     </div>
                     <div className="mt-2.5 flex items-center gap-2.5">
-                      <span className="eyebrow text-ice-500">Confidence</span>
+                      <span className="eyebrow text-ice-400">Confidence</span>
                       <div
                         className="h-1.5 flex-1 rounded-full bg-ice-700"
                         role="img"
@@ -248,7 +247,7 @@ export default function VideoReview() {
                     />
                   </label>
                   <div className="mt-3 flex flex-wrap items-center justify-between gap-3">
-                    <p className="text-xs text-ice-500">
+                    <p className="text-xs text-ice-400">
                       {allResolved
                         ? 'Every finding is resolved — dismissed items never leave this screen.'
                         : `Resolve ${pendingCount} remaining ${pendingCount === 1 ? 'finding' : 'findings'} to unlock sharing.`}
@@ -269,7 +268,7 @@ export default function VideoReview() {
                       “{comments[selected.id]}”
                     </p>
                   )}
-                  <p className="mt-2 text-xs text-ice-500">
+                  <p className="mt-2 text-xs text-ice-400">
                     Only confirmed findings traveled — this clip now appears in the player and parent portals.
                   </p>
                 </div>

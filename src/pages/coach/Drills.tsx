@@ -115,13 +115,13 @@ export default function CoachDrills() {
           </label>
           <button
             type="submit"
-            className="inline-flex items-center gap-1.5 rounded-md bg-frost-400 px-4 text-sm font-semibold text-ice-950 shadow-[0_0_18px_rgba(56,189,248,0.25)] transition-colors hover:bg-frost-300"
+            className="inline-flex items-center gap-1.5 rounded-md bg-frost-400 px-4 text-sm font-semibold text-white transition-colors hover:bg-frost-500"
           >
             <Sparkles size={14} aria-hidden /> Find drills
           </button>
         </form>
         <div className="mt-3 flex flex-wrap items-center gap-1.5">
-          <span className="eyebrow text-ice-500">Try</span>
+          <span className="eyebrow text-ice-400">Try</span>
           {DRILL_FINDER_PRESETS.map((p) => (
             <button
               key={p.query}
@@ -155,7 +155,7 @@ export default function CoachDrills() {
                     style={{ animationDelay: `${i * 70}ms` }}
                   >
                     <div className="flex items-start justify-between gap-3">
-                      <p className="display text-base font-semibold uppercase tracking-wide text-ice-50">{d.title}</p>
+                      <p className="display text-base font-semibold text-ice-50">{d.title}</p>
                       <span className="tabular shrink-0 text-sm font-bold text-frost-300">{pct}%</span>
                     </div>
                     <div className="mt-1.5 h-1.5 rounded-full bg-ice-700" role="img" aria-label={`${pct} percent match`}>
@@ -180,14 +180,14 @@ export default function CoachDrills() {
 
       {/* Full library grid */}
       <div className="rise mt-5 mb-2 flex items-baseline justify-between px-1">
-        <h2 className="display text-sm font-semibold uppercase tracking-wider text-ice-100">All drills</h2>
+        <h2 className="display text-sm font-semibold text-ice-100">All drills</h2>
         <span className="tabular text-[11px] text-ice-400">{DRILLS.length} in the Instruction pillar</span>
       </div>
       <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-3">
         {DRILLS.map((d, i) => (
           <div key={d.id} className="rise" style={{ animationDelay: `${i * 50}ms` }}>
             <Card className="h-full transition-colors hover:border-frost-400/50">
-              <p className="display mb-2 text-lg font-semibold uppercase tracking-wide text-ice-50">{d.title}</p>
+              <p className="display mb-2 text-lg font-semibold text-ice-50">{d.title}</p>
               <DrillBody d={d} />
             </Card>
           </div>

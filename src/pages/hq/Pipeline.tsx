@@ -71,7 +71,7 @@ export default function PipelinePage() {
                 </span>
                 {i < STAGES.length - 1 && <ArrowRight size={13} className="text-ice-600" aria-hidden />}
               </div>
-              <div className="space-y-2 rounded-[10px] border border-ice-700/50 bg-ice-900/40 p-2">
+              <div className="space-y-2 rounded-[10px] border border-ice-600/30 bg-ice-900 p-2">
                 {cards.map((p) => (
                   <button
                     key={p.id}
@@ -90,7 +90,7 @@ export default function PipelinePage() {
                   </button>
                 ))}
                 {cards.length === 0 && (
-                  <p className="px-2 py-6 text-center text-xs text-ice-500">Nothing in {stage.label.toLowerCase()}.</p>
+                  <p className="px-2 py-6 text-center text-xs text-ice-400">Nothing in {stage.label.toLowerCase()}.</p>
                 )}
               </div>
             </div>
@@ -103,7 +103,7 @@ export default function PipelinePage() {
           <div className="flex items-center gap-3">
             <Eye size={18} className="shrink-0 text-gold-300" aria-hidden />
             <div>
-              <p className="display text-base font-semibold uppercase tracking-wide text-ice-50">See what prospects see</p>
+              <p className="display text-base font-semibold text-ice-50">See what prospects see</p>
               <p className="text-xs text-ice-400">The Sneak Peek is the prospect-facing surface — the tour, the Blueprint Simulator, the invite CTA.</p>
             </div>
           </div>

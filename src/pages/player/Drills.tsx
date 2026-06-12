@@ -19,7 +19,7 @@ function DrillCard({ drill, assigned, done, onToggle, delay }: {
     >
       <div style={{ animationDelay: `${delay}ms` }}>
         <div className="flex items-start justify-between gap-2">
-          <p className="display text-lg font-semibold uppercase tracking-wide text-ice-50">{drill.title}</p>
+          <p className="display text-lg font-semibold text-ice-50">{drill.title}</p>
           {done && <Chip tone="grass" icon={<Check size={11} aria-hidden />}>Done</Chip>}
         </div>
         <div className="mt-2 flex flex-wrap gap-1.5">
@@ -78,7 +78,7 @@ export default function PlayerDrills() {
       />
 
       <div className="mb-3 flex flex-wrap items-center gap-2">
-        <h2 className="display text-lg font-semibold uppercase tracking-wide text-ice-100">Assigned by Coach Marcus</h2>
+        <h2 className="display text-lg font-semibold text-ice-100">Assigned by Coach Marcus</h2>
         <span className="tabular text-xs text-ice-400">{done.size} of {homework.length} complete</span>
       </div>
       <div className="grid gap-3 md:grid-cols-2 lg:grid-cols-3">
@@ -93,11 +93,11 @@ export default function PlayerDrills() {
           />
         ))}
       </div>
-      <p className="mt-2.5 text-xs text-ice-500">
+      <p className="mt-2.5 text-xs text-ice-400">
         From your last three session notes. Mark them done and Coach Marcus sees it before Friday.
       </p>
 
-      <h2 className="display mb-3 mt-8 text-lg font-semibold uppercase tracking-wide text-ice-100">Explore more</h2>
+      <h2 className="display mb-3 mt-8 text-lg font-semibold text-ice-100">Explore more</h2>
       <div className="grid gap-3 md:grid-cols-2 lg:grid-cols-3">
         {explore.map((d, i) => (
           <DrillCard key={d.id} drill={d} delay={120 + i * 60} />

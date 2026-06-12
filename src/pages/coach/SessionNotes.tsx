@@ -25,11 +25,11 @@ function NoteCard({ note, delay }: { note: SessionNote; delay: number }) {
         </div>
         {note.sentToParent && <Chip tone="grass" icon={<CheckCheck size={11} aria-hidden />}>Sent to parent</Chip>}
       </div>
-      <p className="display mt-3 text-sm font-semibold uppercase tracking-wider text-frost-300">{note.focus}</p>
+      <p className="display mt-3 text-sm font-semibold text-frost-300">{note.focus}</p>
       <p className="mt-1.5 text-sm leading-relaxed text-ice-200">{note.workedOn}</p>
       {note.homework.length > 0 && (
         <div className="mt-3 flex flex-wrap items-center gap-1.5">
-          <span className="eyebrow text-ice-500">Homework</span>
+          <span className="eyebrow text-ice-400">Homework</span>
           {note.homework.map((id) => (
             <Chip key={id} tone="frost">{drillById(id)?.title ?? id}</Chip>
           ))}
@@ -148,7 +148,7 @@ export default function CoachSessionNotes() {
                   )
                 })}
               </div>
-              <p className="mt-1.5 text-[11px] text-ice-500" aria-live="polite">
+              <p className="mt-1.5 text-[11px] text-ice-400" aria-live="polite">
                 {homework.length === 0
                   ? 'Tap to attach drills — they land in the player app as homework.'
                   : `${homework.length} ${homework.length === 1 ? 'drill' : 'drills'} attached.`}
@@ -172,7 +172,7 @@ export default function CoachSessionNotes() {
         {/* Sent history */}
         <div>
           <div className="rise mb-2 flex items-baseline justify-between px-1">
-            <h2 className="display text-sm font-semibold uppercase tracking-wider text-ice-100">Sent notes</h2>
+            <h2 className="display text-sm font-semibold text-ice-100">Sent notes</h2>
             <span className="tabular text-[11px] text-ice-400">{sent.length} on file</span>
           </div>
           <div className="space-y-3">

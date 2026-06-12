@@ -16,7 +16,7 @@ function StageMarker({ status }: { status: JourneyStage['status'] }) {
   if (status === 'current') {
     return (
       <span className="relative flex h-10 w-10 items-center justify-center">
-        <span className="absolute inset-0 rounded-full border-2 border-frost-400 shadow-[0_0_18px_rgba(56,189,248,0.55)]" aria-hidden />
+        <span className="absolute inset-0 rounded-full border-2 border-frost-400" aria-hidden />
         <span className="h-3 w-3 rounded-full bg-frost-400" aria-hidden />
         <span className="sr-only">Current stage</span>
       </span>
@@ -64,14 +64,14 @@ export default function PlayerJourney() {
                   <Card
                     className={
                       isCurrent
-                        ? 'border-frost-400/60 shadow-[0_0_28px_rgba(56,189,248,0.18)]'
+                        ? 'border-frost-400/60'
                         : isDone
                           ? 'border-grass-500/30'
                           : ''
                     }
                   >
                     <div className="flex flex-wrap items-center gap-2">
-                      <h2 className="display text-xl font-semibold uppercase tracking-wide text-ice-50">{stage.name}</h2>
+                      <h2 className="display text-xl font-semibold text-ice-50">{stage.name}</h2>
                       <span className="tabular text-xs text-ice-400">Ages {stage.ages}</span>
                       {isCurrent && <Chip tone="frost" icon={<Sparkles size={11} aria-hidden />}>You are here</Chip>}
                       {isDone && <Chip tone="grass">Complete</Chip>}
@@ -118,7 +118,7 @@ export default function PlayerJourney() {
         </ol>
 
         <Card className="rise mt-2 border-frost-400/30 text-center" >
-          <p className="display text-xl font-semibold uppercase tracking-wide text-ice-50">
+          <p className="display text-xl font-semibold text-ice-50">
             Eight years in. Six more to College Bound.
           </p>
           <p className="mx-auto mt-2 max-w-md text-sm leading-relaxed text-ice-300">

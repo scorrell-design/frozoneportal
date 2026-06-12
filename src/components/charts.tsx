@@ -27,16 +27,16 @@ export function Sparkline({ data, width = 96, height = 28, stroke = 'var(--color
 
 /* ---------- Savant-style percentile row ---------- */
 export function PercentileRow({ label, score, grade }: { label: string; score: number; grade?: string }) {
-  // blue (cold) -> red (hot), the Baseball Savant idiom
+  // blue (cold) -> red (hot), the Baseball Savant idiom — Savant itself is light-themed
   const hue = 210 - (score / 100) * 195
-  const color = `hsl(${hue} 78% 55%)`
+  const color = `hsl(${hue} 70% 42%)`
   return (
     <div className="grid grid-cols-[minmax(90px,140px)_1fr_auto] items-center gap-3 py-1.5">
       <span className="truncate text-xs font-medium text-ice-300">{label}</span>
       <div className="relative h-1.5 rounded-full bg-ice-700" role="img" aria-label={`${label}: ${score}th percentile`}>
         <div className="absolute inset-y-0 left-0 rounded-full opacity-60" style={{ width: `${score}%`, background: color }} />
         <span
-          className="tabular absolute top-1/2 flex h-6 w-6 -translate-y-1/2 items-center justify-center rounded-full text-[10px] font-bold text-ice-950 shadow"
+          className="tabular absolute top-1/2 flex h-6 w-6 -translate-y-1/2 items-center justify-center rounded-full text-[10px] font-bold text-white shadow-sm"
           style={{ left: `calc(${score}% - 12px)`, background: color, transition: 'left 700ms cubic-bezier(0.22,1,0.36,1)' }}
         >
           {score}

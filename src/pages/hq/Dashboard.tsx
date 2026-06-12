@@ -161,7 +161,7 @@ export default function DashboardPage() {
               {topResources.map((r, i) => (
                 <Link key={r.id} to="/hq/content" className="flex items-center justify-between gap-3 rounded-lg border border-ice-600/30 bg-ice-900/60 px-3 py-2 transition-colors hover:border-frost-400/40">
                   <span className="flex min-w-0 items-center gap-2">
-                    <span className="display tabular w-4 shrink-0 text-sm font-bold text-ice-500">{i + 1}</span>
+                    <span className="display tabular w-4 shrink-0 text-sm font-bold text-ice-400">{i + 1}</span>
                     <FileText size={14} className="shrink-0 text-frost-400" aria-hidden />
                     <span className="min-w-0">
                       <span className="block truncate text-sm font-medium text-ice-100">{r.title}</span>

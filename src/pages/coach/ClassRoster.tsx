@@ -10,8 +10,8 @@ import type { Player } from '../../lib/types'
 type Mark = 'present' | 'late' | 'absent'
 
 const SEGMENTS: { value: Mark; label: string; selected: string }[] = [
-  { value: 'present', label: 'Present', selected: 'bg-grass-500 border-grass-500 text-ice-950' },
-  { value: 'late', label: 'Late', selected: 'bg-gold-400 border-gold-400 text-ice-950' },
+  { value: 'present', label: 'Present', selected: 'bg-grass-500 border-grass-500 text-white' },
+  { value: 'late', label: 'Late', selected: 'bg-gold-400 border-gold-400 text-white' },
   { value: 'absent', label: 'Absent', selected: 'bg-clay-500 border-clay-500 text-white' },
 ]
 
@@ -131,7 +131,7 @@ export default function ClassRoster() {
           })}
         </ul>
       </Card>
-      <p className="mt-3 text-xs text-ice-500">
+      <p className="mt-3 text-xs text-ice-400">
         Unpaid and eligibility flags come straight from billing and waivers — handle them at the door, not mid-session.
       </p>
     </div>

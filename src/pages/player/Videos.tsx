@@ -7,20 +7,34 @@ import type { SessionVideo } from '../../lib/types'
 const fmtDuration = (sec: number) => `${Math.floor(sec / 60)}:${String(sec % 60).padStart(2, '0')}`
 
 function Thumb({ video, large }: { video: SessionVideo; large?: boolean }) {
+  if (large) {
+    // Player viewport inside the modal — intentionally dark, like a real video player
+    return (
+      <div className="relative flex aspect-video items-center justify-center overflow-hidden rounded-[10px] bg-ink-900" aria-hidden>
+        <span className="flex h-16 w-16 items-center justify-center rounded-full border border-white/25 bg-white/10 text-white">
+          <Play size={26} className="ml-0.5" fill="currentColor" />
+        </span>
+        <span className="tabular absolute bottom-2 right-2 rounded bg-ink-950/70 px-1.5 py-0.5 text-[11px] font-semibold text-white">
+          {fmtDuration(video.durationSec)}
+        </span>
+      </div>
+    )
+  }
   return (
     <div
-      className={`relative flex items-center justify-center overflow-hidden rounded-[10px] ${large ? 'aspect-video' : 'aspect-[16/9]'}`}
+      className="relative flex aspect-[16/9] items-center justify-center overflow-hidden rounded-[10px]"
       style={{
-        background: `linear-gradient(135deg, hsl(${video.hue} 55% 22%), hsl(${video.hue} 60% 10%))`,
+        background: `linear-gradient(135deg, hsl(${video.hue} 50% 90%), hsl(${video.hue} 45% 80%))`,
       }}
       aria-hidden
     >
       <span
-        className={`flex items-center justify-center rounded-full border border-white/20 bg-ice-950/60 text-frost-300 backdrop-blur-sm transition-transform group-hover:scale-110 ${large ? 'h-16 w-16' : 'h-12 w-12'}`}
+        className="flex h-12 w-12 items-center justify-center rounded-full border border-white/60 bg-white/70 backdrop-blur-sm transition-transform group-hover:scale-110"
+        style={{ color: `hsl(${video.hue} 50% 30%)` }}
       >
-        <Play size={large ? 26 : 20} className="ml-0.5" fill="currentColor" />
+        <Play size={20} className="ml-0.5" fill="currentColor" />
       </span>
-      <span className="tabular absolute bottom-2 right-2 rounded bg-ice-950/80 px-1.5 py-0.5 text-[11px] font-semibold text-ice-100">
+      <span className="tabular absolute bottom-2 right-2 rounded bg-white/80 px-1.5 py-0.5 text-[11px] font-semibold text-ice-100">
         {fmtDuration(video.durationSec)}
       </span>
     </div>
@@ -115,7 +129,7 @@ export default function PlayerVideos() {
                 <li key={o.id} className="flex items-start gap-2.5 rounded-lg border border-ice-600/40 bg-ice-900/60 p-3 text-sm leading-relaxed text-ice-100">
                   <Check size={15} className="mt-0.5 shrink-0 text-grass-400" aria-hidden />
                   <span className="min-w-0 flex-1">{o.text}</span>
-                  <span className="tabular shrink-0 text-[11px] text-ice-500">{Math.round(o.confidence * 100)}%</span>
+                  <span className="tabular shrink-0 text-[11px] text-ice-400">{Math.round(o.confidence * 100)}%</span>
                 </li>
               ))}
             </ul>

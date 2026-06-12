@@ -115,7 +115,7 @@ export default function CoachPlayers() {
           ))}
         </div>
         <div className="flex items-center gap-1.5" role="group" aria-label="Sort players">
-          <span className="eyebrow text-ice-500">Sort</span>
+          <span className="eyebrow text-ice-400">Sort</span>
           <div className="flex overflow-hidden rounded-md border border-ice-600/60">
             {SORTS.map((s) => (
               <button
@@ -123,7 +123,7 @@ export default function CoachPlayers() {
                 onClick={() => setSort(s.key)}
                 aria-pressed={sort === s.key}
                 className={`border-r border-ice-600/60 px-3 py-1.5 text-xs font-semibold transition-colors last:border-r-0 ${
-                  sort === s.key ? 'bg-frost-400 text-ice-950' : 'bg-ice-900 text-ice-300 hover:bg-ice-700/70 hover:text-ice-100'
+                  sort === s.key ? 'bg-frost-400 text-white' : 'bg-ice-900 text-ice-300 hover:bg-ice-700/70 hover:text-ice-100'
                 }`}
               >
                 {s.label}
@@ -174,7 +174,7 @@ export default function CoachPlayers() {
                         {p.composite}
                         <span className="ml-1.5 text-sm font-semibold text-frost-300">{gradeFor(p.composite)}</span>
                       </p>
-                      <p className="eyebrow text-ice-500">Composite</p>
+                      <p className="eyebrow text-ice-400">Composite</p>
                     </div>
                     <Sparkline
                       data={p.compositeTrend}
@@ -194,7 +194,7 @@ export default function CoachPlayers() {
           </ul>
         </Card>
       )}
-      <p className="mt-3 text-xs text-ice-500">
+      <p className="mt-3 text-xs text-ice-400">
         Composite is the Rock Ready blend of all seven indexes — tap any player for the full development picture.
       </p>
     </div>

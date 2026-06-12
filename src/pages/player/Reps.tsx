@@ -16,7 +16,7 @@ function QualitySegments({ quality, size = 'sm' }: { quality: number; size?: 'sm
       {[1, 2, 3, 4, 5].map((n) => (
         <span
           key={n}
-          className={`${dims} rounded-full ${n <= quality ? 'bg-frost-400 shadow-[0_0_6px_rgba(56,189,248,0.4)]' : 'bg-ice-700'}`}
+          className={`${dims} rounded-full ${n <= quality ? 'bg-gold-400' : 'bg-ice-700'}`}
         />
       ))}
     </span>
@@ -122,14 +122,14 @@ export default function PlayerReps() {
                   className={`display rounded-md border py-2 text-sm font-bold transition-colors ${
                     quality >= n
                       ? 'border-frost-400/60 bg-frost-400/20 text-frost-300'
-                      : 'border-ice-600/60 bg-ice-900 text-ice-500 hover:border-frost-400/40 hover:text-ice-300'
+                      : 'border-ice-600/60 bg-ice-900 text-ice-400 hover:border-frost-400/40 hover:text-ice-300'
                   }`}
                 >
                   {n}
                 </button>
               ))}
             </div>
-            <p className="mt-1.5 text-[11px] text-ice-500">1 = going through the motions · 5 = every rep with intent</p>
+            <p className="mt-1.5 text-[11px] text-ice-400">1 = going through the motions · 5 = every rep with intent</p>
           </div>
           <Button onClick={logIt} className="mt-4 w-full">Log it</Button>
         </Card>
@@ -170,7 +170,7 @@ export default function PlayerReps() {
                 </span>
                 <QualitySegments quality={Math.round(f.avg)} />
               </div>
-              <p className="tabular mt-1 text-[11px] text-ice-500">{f.sessions} {f.sessions === 1 ? 'session' : 'sessions'}</p>
+              <p className="tabular mt-1 text-[11px] text-ice-400">{f.sessions} {f.sessions === 1 ? 'session' : 'sessions'}</p>
             </div>
           ))}
         </div>

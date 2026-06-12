@@ -109,7 +109,7 @@ export default function MembersPage() {
               value={query}
               onChange={(e) => setQuery(e.target.value)}
               placeholder="Search by parent or player name…"
-              className="w-full rounded-lg border border-ice-600/60 bg-ice-900 py-2 pl-9 pr-3 text-sm text-ice-100 placeholder:text-ice-500 focus:border-frost-400/60"
+              className="w-full rounded-lg border border-ice-600/60 bg-ice-900 py-2 pl-9 pr-3 text-sm text-ice-100 placeholder:text-ice-400 focus:border-frost-400/60"
             />
           </label>
           <div className="flex flex-wrap items-center gap-1.5">
@@ -139,8 +139,8 @@ export default function MembersPage() {
             {results.length} {results.length === 1 ? 'family' : 'families'}
           </p>
           <div className="hidden items-center gap-3 md:flex">
-            <span className="eyebrow w-20 text-right text-ice-500">Balance</span>
-            <span className="eyebrow hidden w-20 text-right text-ice-500 lg:block">Points</span>
+            <span className="eyebrow w-20 text-right text-ice-400">Balance</span>
+            <span className="eyebrow hidden w-20 text-right text-ice-400 lg:block">Points</span>
             <span className="w-[15px]" aria-hidden />
           </div>
         </div>

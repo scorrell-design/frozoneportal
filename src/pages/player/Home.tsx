@@ -127,7 +127,7 @@ export default function PlayerHome() {
               )
             })}
           </div>
-          <p className="mt-3 text-xs text-ice-500">Assigned by Coach Marcus after Tuesday's session. Quality beats volume.</p>
+          <p className="mt-3 text-xs text-ice-400">Assigned by Coach Marcus after Tuesday's session. Quality beats volume.</p>
         </Card>
 
         {/* Latest coach note */}
@@ -149,14 +149,14 @@ export default function PlayerHome() {
           <Link
             key={to}
             to={to}
-            className="rise group flex items-center gap-3 rounded-[10px] border border-ice-600/40 bg-ice-800 p-4 transition-colors hover:border-frost-400/60 dark-card"
+            className="rise group flex items-center gap-3 rounded-[10px] border border-ice-600/40 bg-ice-800 p-4 transition-colors hover:border-frost-400/60"
             style={{ animationDelay: `${150 + i * 50}ms` }}
           >
             <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg border border-ice-600/50 bg-ice-900 text-frost-400">
               <Icon size={18} aria-hidden />
             </span>
             <span className="min-w-0 flex-1">
-              <span className="display block text-sm font-semibold uppercase tracking-wide text-ice-50">{label}</span>
+              <span className="display block text-sm font-semibold text-ice-50">{label}</span>
               <span className="block text-xs text-ice-400">{sub}</span>
             </span>
             <ArrowRight size={15} className="text-ice-500 transition-colors group-hover:text-frost-300" aria-hidden />

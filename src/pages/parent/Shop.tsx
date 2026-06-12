@@ -72,14 +72,14 @@ export default function ShopPage() {
               <div
                 aria-hidden
                 className="h-20 rounded-lg"
-                style={{ background: `linear-gradient(135deg, hsl(${p.hue} 50% 26%), hsl(${p.hue} 60% 14%))`, border: `1px solid hsl(${p.hue} 45% 34%)` }}
+                style={{ background: `linear-gradient(135deg, hsl(${p.hue} 50% 90%), hsl(${p.hue} 45% 80%))`, border: `1px solid hsl(${p.hue} 35% 68%)` }}
               />
               <p className="mt-3 flex-1 text-sm font-semibold text-ice-100">{p.name}</p>
               <div className="mt-1.5 flex items-baseline justify-between gap-2">
                 <span className="tabular text-lg font-bold text-ice-50">{money(p.price)}</span>
                 <span className="tabular text-xs font-semibold text-gold-300">{p.points.toLocaleString()} pts</span>
               </div>
-              <p className={`mt-0.5 text-[11px] ${p.stock < 10 ? 'text-clay-300' : 'text-ice-500'}`}>
+              <p className={`mt-0.5 text-[11px] ${p.stock < 10 ? 'text-clay-300' : 'text-ice-400'}`}>
                 {p.stock >= 999 ? 'Always available' : p.stock < 10 ? `Only ${p.stock} left` : `${p.stock} in stock`}
               </p>
               <div className="mt-3 grid grid-cols-2 gap-2">
@@ -99,7 +99,7 @@ export default function ShopPage() {
       {/* Mini cart */}
       {cartCount > 0 && (
         <div className="sticky bottom-4 z-30 mt-4">
-          <Card className="rise border-frost-400/40 shadow-2xl">
+          <Card className="rise border-frost-400/40 shadow-sm">
             <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
               <ShoppingCart size={17} className="text-frost-400" aria-hidden />
               <span className="text-sm font-semibold text-ice-100">
