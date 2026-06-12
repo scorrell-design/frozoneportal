@@ -3,7 +3,7 @@
 > The operating system for baseball & softball training facilities, by Frozen Ropes.
 > One login runs the building. One login develops the player. HQ sees the whole network.
 
-**Live demo:** https://frozoneportal.netlify.app
+**Live demo:** https://frozone-portal-demo.netlify.app
 **Stack:** React 19 · Vite 7 · TypeScript (strict) · Tailwind CSS v4 · React Router 7 · Recharts · Netlify
 
 <p>
